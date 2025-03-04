@@ -1,11 +1,17 @@
 extends CharacterBody2D
 
+enum PlayerState { IDLE, ATTACK }
+
 @export var speed: float = 250.0
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const MARGIN: float = 32
 
+var _state: PlayerState = PlayerState.IDLE
 var _upper_left: Vector2
 var _lower_right: Vector2
+var _is_attack_anim_finished: bool = true
 
 func _ready():
 	set_limits()
@@ -14,6 +20,9 @@ func _process(delta):
 	var input = get_movement_input()
 	position += input * delta * speed
 	position = position.clamp(_upper_left, _lower_right)
+	
+	calculate_states()
+	print(_state)
 
 func get_movement_input() -> Vector2:
 	var player_vector = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -24,3 +33,32 @@ func set_limits() -> void:
 	var vp = get_viewport_rect()
 	_lower_right = Vector2(vp.size.x - MARGIN, vp.size.y - MARGIN)
 	_upper_left = Vector2(MARGIN, MARGIN)
+
+func set_state(new_state: PlayerState) -> void:
+	if new_state == _state:
+		return
+	
+	if !_is_attack_anim_finished:
+		return
+
+	_state = new_state
+	
+	match _state:
+		PlayerState.IDLE:
+			animation_player.play("idle")
+		PlayerState.ATTACK:
+			_is_attack_anim_finished = false
+			animation_player.play("attack")
+
+func calculate_states() -> void:
+	if Input.is_action_just_pressed("attack"):
+		set_state(PlayerState.ATTACK)
+	elif get_movement_input() != Vector2.ZERO:
+		set_state(PlayerState.IDLE)
+	else:
+		set_state(PlayerState.IDLE)
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "attack":
+		_is_attack_anim_finished = true

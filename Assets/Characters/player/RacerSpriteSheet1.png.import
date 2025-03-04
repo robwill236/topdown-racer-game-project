@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgol7vhx6yius"
-path="res://.godot/imported/PlaceholderPlayer.png-d879b7b8c0199910bf5f1ff23c931a7f.ctex"
+uid="uid://c3wfnvis1ymhx"
+path="res://.godot/imported/RacerSpriteSheet1.png-e66ac9272ec3f69e68248b5f485671a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/PlaceholderPlayer.png"
-dest_files=["res://.godot/imported/PlaceholderPlayer.png-d879b7b8c0199910bf5f1ff23c931a7f.ctex"]
+source_file="res://Assets/Characters/player/RacerSpriteSheet1.png"
+dest_files=["res://.godot/imported/RacerSpriteSheet1.png-e66ac9272ec3f69e68248b5f485671a8.ctex"]
 
 [params]
 
