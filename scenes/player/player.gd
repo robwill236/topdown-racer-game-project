@@ -12,9 +12,14 @@ var _state: PlayerState = PlayerState.IDLE
 var _upper_left: Vector2
 var _lower_right: Vector2
 var _is_attack_anim_finished: bool = true
+var _left_detector: bool = false
+var _right_detector: bool = false
 
 func _ready():
 	set_limits()
+	SignalManager.left_detection.connect(set_left_detector)
+	SignalManager.right_detection.connect(set_right_detector)
+	
 
 func _process(delta):
 	var input = get_movement_input()
@@ -22,7 +27,6 @@ func _process(delta):
 	position = position.clamp(_upper_left, _lower_right)
 	
 	calculate_states()
-	print(_state)
 
 func get_movement_input() -> Vector2:
 	var player_vector = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -58,7 +62,15 @@ func calculate_states() -> void:
 	else:
 		set_state(PlayerState.IDLE)
 
+func set_left_detector(is_detected: bool):
+	pass
+
+func set_right_detector(is_detected: bool):
+	pass
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack":
 		_is_attack_anim_finished = true
+
+func _on_hitbox_body_entered(body):
+	print(body)
