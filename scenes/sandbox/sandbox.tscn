@@ -13,11 +13,18 @@ position = Vector2(580, 326)
 scale = Vector2(1.36667, 1)
 texture = ExtResource("1_1ofgy")
 
-[node name="Player" parent="." instance=ExtResource("2_0ojvd")]
-position = Vector2(606, 326)
-
 [node name="PlaceholderEnemy" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderEnemy"]
 position = Vector2(770, 308.5)
 shape = SubResource("RectangleShape2D_ukn6d")
+
+[node name="PlaceholderEnemy2" type="CharacterBody2D" parent="."]
+position = Vector2(-138, -143)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderEnemy2"]
+position = Vector2(770, 308.5)
+shape = SubResource("RectangleShape2D_ukn6d")
+
+[node name="Player" parent="." instance=ExtResource("2_0ojvd")]
+position = Vector2(710, 365)
