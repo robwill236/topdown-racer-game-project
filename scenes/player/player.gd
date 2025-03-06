@@ -14,13 +14,13 @@ var _state: PlayerState = PlayerState.IDLE
 var _upper_left: Vector2
 var _lower_right: Vector2
 var _is_attack_anim_finished: bool = true
-var _left_detector: bool = false
-var _right_detector: bool = false
+var _detectors: Dictionary = {"left": false, "right": false}
+var _detection_changed: bool = false
 
 func _ready():
 	set_limits()
-	SignalManager.left_detection.connect(set_left_detector)
-	SignalManager.right_detection.connect(set_right_detector)
+	SignalManager.left_detection.connect(set_detector)
+	SignalManager.right_detection.connect(set_detector)
 	
 
 func _process(delta):
@@ -66,18 +66,15 @@ func calculate_states() -> void:
 		set_state(PlayerState.IDLE)
 
 func flip_player() -> void:
-	if _left_detector and !_right_detector:
+	if _detectors["left"] and !_detectors["right"]:
 		visual.scale.x = -1
-	elif _right_detector and !_left_detector:
+	elif _detectors["right"] and !_detectors["left"]:
 		visual.scale.x = 1
 	else:
 		visual.scale.x = 1
 
-func set_left_detector(is_detected: bool):
-	_left_detector = is_detected
-
-func set_right_detector(is_detected: bool):
-	_right_detector = is_detected
+func set_detector(detection_side: String, is_detected: bool):
+	_detectors[detection_side] = is_detected
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack":
