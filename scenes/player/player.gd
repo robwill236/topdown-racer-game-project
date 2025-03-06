@@ -15,7 +15,6 @@ var _upper_left: Vector2
 var _lower_right: Vector2
 var _is_attack_anim_finished: bool = true
 var _detectors: Dictionary = {"left": false, "right": false}
-var _detection_changed: bool = false
 
 func _ready():
 	set_limits()
