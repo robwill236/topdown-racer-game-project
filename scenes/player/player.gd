@@ -5,6 +5,8 @@ enum PlayerState { IDLE, ATTACK }
 @export var speed: float = 250.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var visual: Node2D = $Visual
+
 
 const MARGIN: float = 32
 
@@ -51,6 +53,7 @@ func set_state(new_state: PlayerState) -> void:
 		PlayerState.IDLE:
 			animation_player.play("idle")
 		PlayerState.ATTACK:
+			flip_player()
 			_is_attack_anim_finished = false
 			animation_player.play("attack")
 
@@ -62,11 +65,19 @@ func calculate_states() -> void:
 	else:
 		set_state(PlayerState.IDLE)
 
+func flip_player() -> void:
+	if _left_detector and !_right_detector:
+		visual.scale.x = -1
+	elif _right_detector and !_left_detector:
+		visual.scale.x = 1
+	else:
+		visual.scale.x = 1
+
 func set_left_detector(is_detected: bool):
-	pass
+	_left_detector = is_detected
 
 func set_right_detector(is_detected: bool):
-	pass
+	_right_detector = is_detected
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack":
