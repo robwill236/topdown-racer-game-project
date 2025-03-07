@@ -7,37 +7,32 @@ enum PlayerState { IDLE, ATTACK }
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
 
-
 const MARGIN: float = 32
 
 var _state: PlayerState = PlayerState.IDLE
-var _upper_left: Vector2
-var _lower_right: Vector2
 var _is_attack_anim_finished: bool = true
-var _detectors: Dictionary = {"left": false, "right": false}
+var _detectors: Dictionary = {
+	Constants.LEFT_SIDE_DETECTOR: false, 
+	Constants.RIGHT_SIDE_DETECTOR: false
+}
 
 func _ready():
-	set_limits()
 	SignalManager.left_detection.connect(set_detector)
 	SignalManager.right_detection.connect(set_detector)
 	
 
-func _process(delta):
+func _physics_process(delta):
 	var input = get_movement_input()
-	position += input * delta * speed
-	position = position.clamp(_upper_left, _lower_right)
+
+	velocity = input * speed
 	
+	move_and_slide()
 	calculate_states()
 
 func get_movement_input() -> Vector2:
 	var player_vector = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	
 	return player_vector.normalized()
-
-func set_limits() -> void:
-	var vp = get_viewport_rect()
-	_lower_right = Vector2(vp.size.x - MARGIN, vp.size.y - MARGIN)
-	_upper_left = Vector2(MARGIN, MARGIN)
 
 func set_state(new_state: PlayerState) -> void:
 	if new_state == _state:
@@ -65,9 +60,9 @@ func calculate_states() -> void:
 		set_state(PlayerState.IDLE)
 
 func flip_player() -> void:
-	if _detectors["left"] and !_detectors["right"]:
+	if _detectors[Constants.LEFT_SIDE_DETECTOR] and !_detectors[Constants.RIGHT_SIDE_DETECTOR]:
 		visual.scale.x = -1
-	elif _detectors["right"] and !_detectors["left"]:
+	elif _detectors[Constants.RIGHT_SIDE_DETECTOR] and !_detectors[Constants.LEFT_SIDE_DETECTOR]:
 		visual.scale.x = 1
 	else:
 		visual.scale.x = 1

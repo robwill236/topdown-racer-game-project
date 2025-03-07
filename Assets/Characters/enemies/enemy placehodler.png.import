@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7pjqyacvn6fx"
-path="res://.godot/imported/Sandbox Background.png-16cd812b7863d1e6358ba13035b66811.ctex"
+uid="uid://cwnwaq5gccnlv"
+path="res://.godot/imported/enemy placehodler.png-81edb366635d924c9c6ecbb216492690.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/Sandbox Background.png"
-dest_files=["res://.godot/imported/Sandbox Background.png-16cd812b7863d1e6358ba13035b66811.ctex"]
+source_file="res://assets/characters/enemies/enemy placehodler.png"
+dest_files=["res://.godot/imported/enemy placehodler.png-81edb366635d924c9c6ecbb216492690.ctex"]
 
 [params]
 
