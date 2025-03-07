@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cif1dw0b6spxl"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_rshk8"]
-[ext_resource type="Texture2D" uid="uid://c3wfnvis1ymhx" path="res://Assets/Characters/player/RacerSpriteSheet1.png" id="2_2mauf"]
+[ext_resource type="Texture2D" uid="uid://c3wfnvis1ymhx" path="res://assets/characters/player/RacerSpriteSheet1.png" id="2_2mauf"]
 [ext_resource type="Script" path="res://scenes/player/detection_system.gd" id="3_lo65b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdh1i"]
@@ -95,7 +95,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drhdw"]
 size = Vector2(26, 18)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_rshk8")
 
 [node name="Visual" type="Node2D" parent="."]

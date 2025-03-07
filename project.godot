@@ -22,6 +22,10 @@ SignalManager="*res://singletons/SignalManager.gd"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Player=""
+
 [input]
 
 left={

@@ -1,10 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://buwd8xnbvsgl0"]
 
-[ext_resource type="Texture2D" uid="uid://b7pjqyacvn6fx" path="res://Assets/Backgrounds/Sandbox Background.png" id="1_1ofgy"]
+[ext_resource type="Texture2D" uid="uid://b7pjqyacvn6fx" path="res://assets/backgrounds/Sandbox Background.png" id="1_1ofgy"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="2_0ojvd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukn6d"]
-size = Vector2(38, 55)
+[ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="3_3dsxm"]
 
 [node name="Sandbox" type="Node2D"]
 
@@ -13,18 +11,8 @@ position = Vector2(580, 326)
 scale = Vector2(1.36667, 1)
 texture = ExtResource("1_1ofgy")
 
-[node name="PlaceholderEnemy" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderEnemy"]
-position = Vector2(770, 308.5)
-shape = SubResource("RectangleShape2D_ukn6d")
-
-[node name="PlaceholderEnemy2" type="CharacterBody2D" parent="."]
-position = Vector2(-138, -143)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderEnemy2"]
-position = Vector2(770, 308.5)
-shape = SubResource("RectangleShape2D_ukn6d")
-
 [node name="Player" parent="." instance=ExtResource("2_0ojvd")]
 position = Vector2(710, 365)
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("3_3dsxm")]
+position = Vector2(420, 200)
