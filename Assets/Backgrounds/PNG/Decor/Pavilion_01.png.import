@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwnwaq5gccnlv"
-path="res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"
+uid="uid://dlpdjlsciu7br"
+path="res://.godot/imported/Pavilion_01.png-c2d7532b0832a18317c138deeaf56ccf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/enemies/enemy placehodler.png"
-dest_files=["res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Decor/Pavilion_01.png"
+dest_files=["res://.godot/imported/Pavilion_01.png-c2d7532b0832a18317c138deeaf56ccf.ctex"]
 
 [params]
 

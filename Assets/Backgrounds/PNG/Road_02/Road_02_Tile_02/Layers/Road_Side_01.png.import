@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwnwaq5gccnlv"
-path="res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"
+uid="uid://bf0nxlhbcdspc"
+path="res://.godot/imported/Road_Side_01.png-2f6bba41ade6385b5ece8a0e2217cfba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/enemies/enemy placehodler.png"
-dest_files=["res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Road_02/Road_02_Tile_02/Layers/Road_Side_01.png"
+dest_files=["res://.godot/imported/Road_Side_01.png-2f6bba41ade6385b5ece8a0e2217cfba.ctex"]
 
 [params]
 
