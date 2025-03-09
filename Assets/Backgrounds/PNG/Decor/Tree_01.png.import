@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwnwaq5gccnlv"
-path="res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"
+uid="uid://ccgodx6j1vvif"
+path="res://.godot/imported/Tree_01.png-52412ddb260639609b0b9e805603c559.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/enemies/enemy placehodler.png"
-dest_files=["res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Decor/Tree_01.png"
+dest_files=["res://.godot/imported/Tree_01.png-52412ddb260639609b0b9e805603c559.ctex"]
 
 [params]
 

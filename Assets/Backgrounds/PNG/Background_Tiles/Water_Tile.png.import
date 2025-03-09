@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwnwaq5gccnlv"
-path="res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"
+uid="uid://dll6myd1y1h4a"
+path="res://.godot/imported/Water_Tile.png-15d0ddf0d1562addfd430ad4fa4010e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/enemies/enemy placehodler.png"
-dest_files=["res://.godot/imported/enemy placehodler.png-306aa52d1e0d7cdf26a84f1ef8073f83.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Background_Tiles/Water_Tile.png"
+dest_files=["res://.godot/imported/Water_Tile.png-15d0ddf0d1562addfd430ad4fa4010e4.ctex"]
 
 [params]
 
