@@ -1,29 +1,25 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 100.0
 
-var _player_ref: CharacterBody2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var _player_detection_system: DetectionSystem
 
 func _ready():
-	_player_ref = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
+	_player_detection_system = get_player_detection_system()
 
 func _physics_process(delta):
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
+	var direction = (_player_detection_system.get_right_detector_position() - position).normalized()
+	
+	velocity = direction * SPEED
+	move_and_slide()
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+func get_player_detection_system() -> DetectionSystem:
+	var player_ref = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
 
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction = Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
+	return player_ref.get_node("DetectionSystem")
 
-	#move_and_slide()
+func attack():
+	animation_player.play("attack")

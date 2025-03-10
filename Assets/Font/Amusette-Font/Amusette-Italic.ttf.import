@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cm50gsbtm12tb"
-path="res://.godot/imported/Amusette-Italic.ttf-e0fd9e2522ad6a3bb9824d3afbdb9c9f.fontdata"
+path="res://.godot/imported/Amusette-Italic.ttf-2242f9d146a222f4da4051107a8a180a.fontdata"
 
 [deps]
 
-source_file="res://Assets/Font/Amusette-Font/Amusette-Italic.ttf"
-dest_files=["res://.godot/imported/Amusette-Italic.ttf-e0fd9e2522ad6a3bb9824d3afbdb9c9f.fontdata"]
+source_file="res://assets/Font/Amusette-Font/Amusette-Italic.ttf"
+dest_files=["res://.godot/imported/Amusette-Italic.ttf-2242f9d146a222f4da4051107a8a180a.fontdata"]
 
 [params]
 

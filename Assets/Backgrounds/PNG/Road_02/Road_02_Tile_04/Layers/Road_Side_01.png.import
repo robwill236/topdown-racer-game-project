@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dspmkbvqawv18"
-path="res://.godot/imported/Road_Side_01.png-a2b90123a159689b982c29afdb9656d6.ctex"
+path="res://.godot/imported/Road_Side_01.png-f4b234902d3fff9c902f2bee8f0fefee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/PNG/Road_02/Road_02_Tile_04/Layers/Road_Side_01.png"
-dest_files=["res://.godot/imported/Road_Side_01.png-a2b90123a159689b982c29afdb9656d6.ctex"]
+source_file="res://assets/backgrounds/PNG/Road_02/Road_02_Tile_04/Layers/Road_Side_01.png"
+dest_files=["res://.godot/imported/Road_Side_01.png-f4b234902d3fff9c902f2bee8f0fefee.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dcq8rxprr420s"
-path="res://.godot/imported/KnightWarrior-w16n8.otf-09f73c6542a1796589b321fb6a82aef7.fontdata"
+path="res://.godot/imported/KnightWarrior-w16n8.otf-7eb63093e4f7a44cba99c67c9aef62f9.fontdata"
 
 [deps]
 
-source_file="res://Assets/Font/KnightWarrior-w16n8.otf"
-dest_files=["res://.godot/imported/KnightWarrior-w16n8.otf-09f73c6542a1796589b321fb6a82aef7.fontdata"]
+source_file="res://assets/Font/KnightWarrior-w16n8.otf"
+dest_files=["res://.godot/imported/KnightWarrior-w16n8.otf-7eb63093e4f7a44cba99c67c9aef62f9.fontdata"]
 
 [params]
 
