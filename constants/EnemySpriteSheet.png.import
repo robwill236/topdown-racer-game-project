@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fwbf6avx3pk7"
-path="res://.godot/imported/Road_Side_02.png-f248396a245ced088a8e8d7ba65061db.ctex"
+uid="uid://doyttuv5h437i"
+path="res://.godot/imported/EnemySpriteSheet.png-e223ccda1e333684c58915d43367b7a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/PNG/Road_02/Road_02_Tile_07/Layers/Road_Side_02.png"
-dest_files=["res://.godot/imported/Road_Side_02.png-f248396a245ced088a8e8d7ba65061db.ctex"]
+source_file="res://constants/EnemySpriteSheet.png"
+dest_files=["res://.godot/imported/EnemySpriteSheet.png-e223ccda1e333684c58915d43367b7a9.ctex"]
 
 [params]
 
