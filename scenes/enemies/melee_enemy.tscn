@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4f8bn6y7jdva"]
+[gd_scene load_steps=10 format=3 uid="uid://c4f8bn6y7jdva"]
 
 [ext_resource type="Script" path="res://scenes/enemies/melee_enemy.gd" id="1_d0vt5"]
 [ext_resource type="Texture2D" uid="uid://b02lfvcqb0ofc" path="res://assets/characters/enemies/EnemySpriteSheet.png" id="2_qus4o"]
@@ -90,6 +90,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdks"]
 size = Vector2(11, 12)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrnf5"]
+radius = 43.0
+height = 142.0
+
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_d0vt5")
 
@@ -116,3 +120,16 @@ position = Vector2(-5.5, 1)
 shape = SubResource("RectangleShape2D_4cdks")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_jrnf5")
+
+[node name="AvoidanceTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
+[connection signal="timeout" from="AvoidanceTimer" to="." method="_on_avoidance_timer_timeout"]

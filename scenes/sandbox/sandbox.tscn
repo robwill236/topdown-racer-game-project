@@ -20,7 +20,7 @@ texture = ExtResource("1_1ofgy")
 position = Vector2(710, 365)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("3_3dsxm")]
-position = Vector2(420, 200)
+position = Vector2(412, 331)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_7abst")
