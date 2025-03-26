@@ -6,7 +6,7 @@ class_name DetectionSystem
 @onready var left_detector = $LeftDetector
 
 func get_right_detector_position() -> Vector2:
-	return right_detector.global_position
+	return right_detector.global_position + Vector2(50, 0)
 
 func get_left_detector_position() -> Vector2:
 	return left_detector.global_position
