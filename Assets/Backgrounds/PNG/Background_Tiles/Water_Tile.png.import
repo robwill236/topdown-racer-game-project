@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dll6myd1y1h4a"
-path="res://.godot/imported/Water_Tile.png-b6e32c98f3eb7feba1c434d5a00e2846.ctex"
+path="res://.godot/imported/Water_Tile.png-15d0ddf0d1562addfd430ad4fa4010e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/PNG/Background_Tiles/Water_Tile.png"
-dest_files=["res://.godot/imported/Water_Tile.png-b6e32c98f3eb7feba1c434d5a00e2846.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Background_Tiles/Water_Tile.png"
+dest_files=["res://.godot/imported/Water_Tile.png-15d0ddf0d1562addfd430ad4fa4010e4.ctex"]
 
 [params]
 
