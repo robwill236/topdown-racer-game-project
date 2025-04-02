@@ -22030,6 +22030,7 @@ position = Vector2(-97.5148, -541.316)
 zoom = Vector2(0.8, 0.8)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("8_uk8tv")]
+visible = false
 position = Vector2(-58.7808, 413)
 rotation = 1.5708
 
