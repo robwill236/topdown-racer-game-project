@@ -6,6 +6,7 @@ const DISTANCE_THRESHOLD = 25.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var avoidance_timer: Timer = $AvoidanceTimer
 @onready var detector: Area2D = $Detector
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var _player_detection_system: DetectionSystem
 var _player_detectors: Dictionary = {
@@ -14,11 +15,13 @@ var _player_detectors: Dictionary = {
 }
 var _current_target: String
 var _avoidance_vector: Vector2 = Vector2.ZERO
+var _health: int = 30
 
 
 func _ready():
 	SignalManager.left_detection.connect(set_detector)
 	SignalManager.right_detection.connect(set_detector)
+	SignalManager.on_hit.connect(take_damage)
 	_player_detection_system = get_player_detection_system()
 
 func _physics_process(delta):
@@ -68,10 +71,24 @@ func evaluate_attack_position(player_side: String) -> void:
 
 func attack() -> void:
 	detector.monitoring = false
+	
+	if _current_target == Constants.LEFT_SIDE_DETECTOR:
+		sprite_2d.flip_h = false
+	else:
+		sprite_2d.flip_h = true
+
 	animation_player.play("attack")
+	SignalManager.on_hit.emit(20, self)
 
 func back_to_monitoring() -> void:
 	detector.monitoring = true
+
+func take_damage(damage: int, source: Node) -> void:
+	if source.is_in_group(Constants.PLAYER_GROUP):
+		_health -= damage
+	
+	if _health <= 0:
+		queue_free()
 
 func _on_avoidance_timer_timeout():
 	_avoidance_vector = Vector2.ZERO
