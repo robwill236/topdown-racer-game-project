@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bmc7hypltxq0b"
-path="res://.godot/imported/TechnoRaceItalic-eZRWe.otf-0541945964bf2e0e31d0a18540ba923f.fontdata"
+path="res://.godot/imported/TechnoRaceItalic-eZRWe.otf-e7bcea17e2dccfae4268bde1578eec0d.fontdata"
 
 [deps]
 
-source_file="res://assets/Font/TechnoRaceItalic-eZRWe.otf"
-dest_files=["res://.godot/imported/TechnoRaceItalic-eZRWe.otf-0541945964bf2e0e31d0a18540ba923f.fontdata"]
+source_file="res://Assets/Font/TechnoRaceItalic-eZRWe.otf"
+dest_files=["res://.godot/imported/TechnoRaceItalic-eZRWe.otf-e7bcea17e2dccfae4268bde1578eec0d.fontdata"]
 
 [params]
 

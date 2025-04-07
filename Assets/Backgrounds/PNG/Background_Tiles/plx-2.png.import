@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8ii08enn2w65"
-path="res://.godot/imported/plx-2.png-4236e3fecad7a953fac28cb26c91e19f.ctex"
+path="res://.godot/imported/plx-2.png-850c1881a653949f795f667ee3bccd40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/PNG/Background_Tiles/plx-2.png"
-dest_files=["res://.godot/imported/plx-2.png-4236e3fecad7a953fac28cb26c91e19f.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Background_Tiles/plx-2.png"
+dest_files=["res://.godot/imported/plx-2.png-850c1881a653949f795f667ee3bccd40.ctex"]
 
 [params]
 
