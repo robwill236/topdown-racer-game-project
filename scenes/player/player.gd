@@ -10,6 +10,7 @@ enum PlayerState { IDLE, ATTACK }
 const MARGIN: float = 32
 
 var _state: PlayerState = PlayerState.IDLE
+var _health: int = 100
 var _is_attack_anim_finished: bool = true
 var _detectors: Dictionary = {
 	Constants.LEFT_SIDE_DETECTOR: false, 
@@ -19,7 +20,7 @@ var _detectors: Dictionary = {
 func _ready():
 	SignalManager.left_detection.connect(set_detector)
 	SignalManager.right_detection.connect(set_detector)
-	
+	SignalManager.on_hit.connect(take_damage)
 
 func _physics_process(delta):
 	var input = get_movement_input()
@@ -67,6 +68,13 @@ func flip_player() -> void:
 	else:
 		visual.scale.x = 1
 
+func take_damage(damage: int, source: Node) -> void:
+	if source.is_in_group(Constants.ENEMIES_GROUP):
+		_health -= damage
+	
+	if _health <= 0:
+		print(_health)
+
 func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected
 
@@ -75,4 +83,4 @@ func _on_animation_player_animation_finished(anim_name):
 		_is_attack_anim_finished = true
 
 func _on_hitbox_body_entered(body):
-	print(body)
+	SignalManager.on_hit.emit(20, self)
