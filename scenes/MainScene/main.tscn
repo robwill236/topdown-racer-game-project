@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://dyr36kcmhq8t3"]
 
 [ext_resource type="Texture2D" uid="uid://dim11jsiy48mi" path="res://Assets/Backgrounds/PNG/Background_Tiles/Grass_Tile.png" id="1_0fn0v"]
-[ext_resource type="Script" path="res://scenes/MainScene/main.gd" id="1_5vwpa"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_5vwpa"]
 [ext_resource type="Texture2D" uid="uid://dlbw62obnvurv" path="res://Assets/Backgrounds/PNG/Road_01/Road_01_Tile_06/Road_01_Tile_06.png" id="2_x1kn0"]
 [ext_resource type="Texture2D" uid="uid://dornef6l7ob4j" path="res://Assets/Backgrounds/PNG/Road_01/Road_01_Tile_08/Road_01_Tile_08.png" id="3_dpma3"]
 [ext_resource type="Texture2D" uid="uid://n1hym0wj3aha" path="res://Assets/Backgrounds/PNG/Decor/Start.png" id="4_ixuax"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c4xecmfqvyohv" path="res://Assets/Backgrounds/PNG/Decor/Decor_Building_02.png" id="14_td476"]
 [ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/MainScene/HUD.tscn" id="17_qvn3d"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44mq3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sc5nd"]
 texture = ExtResource("2_x1kn0")
 0:0/0 = 0
 1:0/0 = 0
@@ -2160,7 +2160,7 @@ texture = ExtResource("2_x1kn0")
 46:58/0 = 0
 47:58/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfkix"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o2530"]
 texture = ExtResource("3_dpma3")
 0:0/0 = 0
 1:0/0 = 0
@@ -3417,7 +3417,7 @@ texture = ExtResource("3_dpma3")
 14:42/0 = 0
 15:42/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y17pl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdp00"]
 texture = ExtResource("4_ixuax")
 9:0/0 = 0
 10:0/0 = 0
@@ -5278,7 +5278,7 @@ texture = ExtResource("4_ixuax")
 87:26/0 = 0
 88:26/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olklj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpj3l"]
 texture = ExtResource("5_es0mg")
 5:0/0 = 0
 6:0/0 = 0
@@ -7308,7 +7308,7 @@ texture = ExtResource("5_es0mg")
 87:26/0 = 0
 88:26/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwu8b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ju1wg"]
 texture = ExtResource("6_gl8o1")
 0:0/0 = 0
 1:0/0 = 0
@@ -8687,7 +8687,7 @@ texture = ExtResource("6_gl8o1")
 30:42/0 = 0
 31:42/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acnnh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20fja"]
 texture = ExtResource("9_8w5cq")
 0:0/0 = 0
 1:0/0 = 0
@@ -9715,12 +9715,12 @@ texture = ExtResource("9_8w5cq")
 31:31/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_hpcpq"]
-sources/2 = SubResource("TileSetAtlasSource_44mq3")
-sources/3 = SubResource("TileSetAtlasSource_bfkix")
-sources/4 = SubResource("TileSetAtlasSource_y17pl")
-sources/5 = SubResource("TileSetAtlasSource_olklj")
-sources/7 = SubResource("TileSetAtlasSource_lwu8b")
-sources/8 = SubResource("TileSetAtlasSource_acnnh")
+sources/2 = SubResource("TileSetAtlasSource_sc5nd")
+sources/3 = SubResource("TileSetAtlasSource_o2530")
+sources/4 = SubResource("TileSetAtlasSource_xdp00")
+sources/5 = SubResource("TileSetAtlasSource_dpj3l")
+sources/7 = SubResource("TileSetAtlasSource_ju1wg")
+sources/8 = SubResource("TileSetAtlasSource_20fja")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vui3q"]
 size = Vector2(2273, 130)
@@ -22023,14 +22023,12 @@ shape = SubResource("RectangleShape2D_mdebn")
 [node name="Player" parent="." instance=ExtResource("7_slett")]
 position = Vector2(-65.7808, 533)
 rotation = 1.5865
-scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-97.5148, -541.316)
 zoom = Vector2(0.8, 0.8)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("8_uk8tv")]
-visible = false
 position = Vector2(-58.7808, 413)
 rotation = 1.5708
 

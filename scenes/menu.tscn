@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://duoeqnsuj876j"]
+
+[ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="1_qn17v"]
+[ext_resource type="FontFile" uid="uid://cvcxw7njdateh" path="res://Assets/Font/Montserrat-Medium.ttf" id="2_pcn4g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gay4"]
+bg_color = Color(0, 0.585726, 0.109276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibu5v"]
+bg_color = Color(0, 0.568096, 0.424495, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmhxl"]
+bg_color = Color(0, 0.568627, 0.423529, 1)
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 0.831373)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -220.0
+offset_right = 384.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qn17v")
+theme_override_font_sizes/font_size = 40
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pcn4g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
+text = "RESUME"
+
+[node name="Player" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pcn4g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
+text = "PLAYER"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pcn4g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
+text = "QUIT"

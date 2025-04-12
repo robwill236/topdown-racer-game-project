@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfx76gu70e2id"]
+[gd_scene load_steps=6 format=3 uid="uid://cfx76gu70e2id"]
 
 [ext_resource type="FontFile" uid="uid://do8e61tk2uyfw" path="res://Assets/Font/Amusette-Font/Amusette-Regular.ttf" id="1_km305"]
 [ext_resource type="FontFile" uid="uid://dlo7gs736fdtc" path="res://Assets/Font/Amusette-Font/AmusetteOutline-Regular.ttf" id="2_admph"]
 [ext_resource type="FontFile" uid="uid://dcq8rxprr420s" path="res://Assets/Font/KnightWarrior-w16n8.otf" id="3_8xjh3"]
+[ext_resource type="Texture2D" uid="uid://b06uqvpbpis5m" path="res://Assets/icons8-pause-30.png" id="4_50hdf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86cnh"]
+bg_color = Color(0, 0.568096, 0.424495, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -54,3 +63,31 @@ text = "Neon Racer:
 Last Death Cycle"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 5.0
+offset_right = 37.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_86cnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(9, 9)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("4_50hdf")
+centered = false
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -352.0
+offset_top = 24.0
+offset_right = -20.0
+offset_bottom = 44.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_86cnh")
