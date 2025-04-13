@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ywtkpqqpumyl"]
+
+[ext_resource type="Script" path="res://scenes/obstacle_manager/obstacle_manager.gd" id="1_x7x6o"]
+[ext_resource type="PackedScene" uid="uid://q16ad0u4gni4" path="res://scenes/road_hazard/road_hazard.tscn" id="2_m5xf8"]
+
+[node name="ObstacleManager" type="Node"]
+script = ExtResource("1_x7x6o")
+obstacle_scene = ExtResource("2_m5xf8")
+
+[node name="ObstacleTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq3nvn7kje7n6"]
+
+[ext_resource type="Script" path="res://scenes/obstacle_lane/obstacle_lane.gd" id="1_1607s"]
+
+[sub_resource type="Curve2D" id="Curve2D_ojk0g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 151, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdn6l"]
+size = Vector2(159, 636)
+
+[node name="ObstacleLane" type="Area2D"]
+script = ExtResource("1_1607s")
+
+[node name="ObstaclePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ojk0g")
+
+[node name="ObstacleSpawnLocation" type="PathFollow2D" parent="ObstaclePath"]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(82, 327)
+shape = SubResource("RectangleShape2D_fdn6l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

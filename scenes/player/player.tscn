@@ -96,6 +96,7 @@ _data = {
 size = Vector2(26, 18)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 2
 script = ExtResource("1_rshk8")
 
 [node name="Visual" type="Node2D" parent="."]
