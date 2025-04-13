@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://q16ad0u4gni4"]
+
+[ext_resource type="Texture2D" uid="uid://5hgpmb4t64xl" path="res://assets/obstacles/oilSpill.png" id="1_0hni6"]
+[ext_resource type="Script" path="res://scenes/road_hazard/road_hazard.gd" id="1_40jyg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smafl"]
+radius = 23.0868
+
+[node name="RoadHazard" type="Area2D"]
+z_index = 1
+script = ExtResource("1_40jyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("1_0hni6")
+offset = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_smafl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
