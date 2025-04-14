@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blp1iodmlwigl"
-path="res://.godot/imported/Pavilion_02.png-4a96831293c54df883d73312fefac7a5.ctex"
+path="res://.godot/imported/Pavilion_02.png-40960be15e8113447505287b13407b58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/PNG/Decor/Pavilion_02.png"
-dest_files=["res://.godot/imported/Pavilion_02.png-4a96831293c54df883d73312fefac7a5.ctex"]
+source_file="res://Assets/Backgrounds/PNG/Decor/Pavilion_02.png"
+dest_files=["res://.godot/imported/Pavilion_02.png-40960be15e8113447505287b13407b58.ctex"]
 
 [params]
 
