@@ -1,61 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn6s0mogqjqhs"]
+[gd_scene load_steps=7 format=3 uid="uid://bn6s0mogqjqhs"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_7g1vc"]
 [ext_resource type="PackedScene" uid="uid://dm2nlupf7khyq" path="res://scenes/background.tscn" id="3_3wtcs"]
-[ext_resource type="Texture2D" uid="uid://n1hym0wj3aha" path="res://Assets/Backgrounds/PNG/Decor/Start.png" id="4_ih7us"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="6_u4dxw"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="7_vp3ax"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/MainScene/HUD.tscn" id="8_jlayb"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/Test/HUD.tscn" id="8_jlayb"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu.tscn" id="11_dfx6w"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1jw"]
-size = Vector2(20, 964)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkkav"]
-size = Vector2(1381, 147)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jd4h"]
-size = Vector2(1381, 126)
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_7g1vc")
 
-[node name="Start" type="StaticBody2D" parent="."]
-position = Vector2(129, 454)
-rotation = -1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
-position = Vector2(-151, 478)
-shape = SubResource("RectangleShape2D_uf1jw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Start"]
-position = Vector2(62, 457)
-rotation = 1.5708
-scale = Vector2(0.412209, 0.429451)
-texture = ExtResource("4_ih7us")
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_3wtcs")]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="ParallaxBackground"]
-collision_layer = 4
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ParallaxBackground/StaticBody2D"]
-position = Vector2(192.501, 687.5)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_hkkav")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="ParallaxBackground/StaticBody2D"]
-position = Vector2(978.001, 684.497)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_4jd4h")
 
 [node name="Player" parent="." instance=ExtResource("6_u4dxw")]
 position = Vector2(625, 529)
 collision_layer = 2
 collision_mask = 4
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(568, 335)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("7_vp3ax")]
 position = Vector2(456, 536)
