@@ -11,10 +11,9 @@ var game_running: bool
 var pause_menu = load("res://scenes/MainMenu.tscn")
 var current_position = Vector2(0,0)
 var max_x = 100
-# Called when the node enters the scene tree for the first time.
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#$CanvasLayer.hide()
 	$HUD/Button.hide()
 	$HUD/Button2.hide()
 	$Menu.hide()
@@ -25,7 +24,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	if Input.is_action_pressed("ui_accept"):
 		game_running = true
 		$HUD.get_node("Label").hide()
@@ -33,15 +31,13 @@ func _process(delta: float) -> void:
 		
 	if game_running:
 		speed = START_SPEED + score / SPEED_MODIFIER
-		$ParallaxBackground.scroll_offset += scroll_speed * delta
+		$ParallaxBackground.scroll_speed += scroll_speed * delta
 		#$Player.position.y -= speed
 		#$Camera2D.position.y -= speed  
 		#$MeleeEnemy.position.y -= speed  
 		$Player.position.x = clamp($Player.position.x, 300, 880)
 		score += speed
-		show_score()
-		
-		
+	show_score()
 
 
 func show_score():
@@ -49,13 +45,13 @@ func show_score():
 	$HUD/Button.show()
 	$HUD/Button2.show()
 
+
 func _unhandled_input(event):		
 	if event.is_action_pressed("ui_cancel"):
 		#get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 		#get_node(".").add_child(pause_menu.instantiate())
 		#get_tree().root.add_child(pause_menu.instantiate())
 		pause_game()
-
 
 func resume_game():
 	game_running = true
