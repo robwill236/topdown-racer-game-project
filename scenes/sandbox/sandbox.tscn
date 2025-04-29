@@ -19,6 +19,9 @@ position = Vector2(710, 365)
 [node name="MeleeEnemy" parent="." instance=ExtResource("3_3dsxm")]
 position = Vector2(420, 200)
 
+[node name="MeleeEnemy2" parent="." instance=ExtResource("3_3dsxm")]
+position = Vector2(837, 390)
+
 [node name="ObstacleManager" parent="." instance=ExtResource("6_0ki77")]
 
 [node name="ObstacleLane" parent="ObstacleManager" instance=ExtResource("7_7kneg")]

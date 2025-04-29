@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tweuovsj80i"
-path="res://.godot/imported/road_pale.png-510994da225232f99dc0a043c9cdeba1.ctex"
+path="res://.godot/imported/road_pale.png-e031fbc8169c89dc3ada5e28388a63e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/city/PNG/City4/Pale/road_pale.png"
-dest_files=["res://.godot/imported/road_pale.png-510994da225232f99dc0a043c9cdeba1.ctex"]
+source_file="res://assets/backgrounds/city/PNG/City4/Pale/road_pale.png"
+dest_files=["res://.godot/imported/road_pale.png-e031fbc8169c89dc3ada5e28388a63e1.ctex"]
 
 [params]
 

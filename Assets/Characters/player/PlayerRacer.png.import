@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fwbf6avx3pk7"
-path="res://.godot/imported/Road_Side_02.png-f248396a245ced088a8e8d7ba65061db.ctex"
+uid="uid://u1p1jr66cumn"
+path="res://.godot/imported/PlayerRacer.png-b5d168a1b1fbee256d9cec4061f73739.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/PNG/Road_02/Road_02_Tile_07/Layers/Road_Side_02.png"
-dest_files=["res://.godot/imported/Road_Side_02.png-f248396a245ced088a8e8d7ba65061db.ctex"]
+source_file="res://assets/characters/player/PlayerRacer.png"
+dest_files=["res://.godot/imported/PlayerRacer.png-b5d168a1b1fbee256d9cec4061f73739.ctex"]
 
 [params]
 
