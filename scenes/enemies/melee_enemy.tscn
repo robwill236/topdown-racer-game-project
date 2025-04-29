@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4f8bn6y7jdva"]
+[gd_scene load_steps=12 format=3 uid="uid://c4f8bn6y7jdva"]
 
 [ext_resource type="Script" path="res://scenes/enemies/melee_enemy.gd" id="1_d0vt5"]
-[ext_resource type="Texture2D" uid="uid://b02lfvcqb0ofc" path="res://assets/characters/enemies/EnemySpriteSheet.png" id="2_qus4o"]
+[ext_resource type="Texture2D" uid="uid://b2hyoo6h6kqjl" path="res://assets/characters/enemies/EnemyRacerSpritesheet.png" id="2_pv6ko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdks"]
+size = Vector2(11, 12)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjcig"]
 radius = 26.0
@@ -12,7 +15,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox:monitoring")
+tracks/0/path = NodePath("Visual/Hitbox:monitoring")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,34 +24,47 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_syswh"]
 resource_name = "attack"
 length = 0.4
+loop_mode = 2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Visual/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 2]
+"values": [3, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/path = NodePath("Visual/Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_5xv7s"]
@@ -58,7 +74,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Visual/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -70,7 +86,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/path = NodePath("Visual/Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,28 +96,59 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_wf4i6"]
+resource_name = "stun"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6j67u"]
 _data = {
 "RESET": SubResource("Animation_k6nx0"),
 "attack": SubResource("Animation_syswh"),
-"idle": SubResource("Animation_5xv7s")
+"idle": SubResource("Animation_5xv7s"),
+"stun": SubResource("Animation_wf4i6")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdks"]
-size = Vector2(11, 12)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqndk"]
 radius = 36.0
 height = 130.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t8rv6"]
+radius = 28.0
+height = 102.0
+
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 2
 script = ExtResource("1_d0vt5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
 scale = Vector2(5.5, 5.5)
-texture = ExtResource("2_qus4o")
-hframes = 3
+texture = ExtResource("2_pv6ko")
+hframes = 5
+frame = 2
+
+[node name="Hitbox" type="Area2D" parent="Visual"]
+position = Vector2(55, -1)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/Hitbox"]
+position = Vector2(-5.5, 1)
+shape = SubResource("RectangleShape2D_4cdks")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
@@ -112,14 +159,6 @@ libraries = {
 "": SubResource("AnimationLibrary_6j67u")
 }
 
-[node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(55, -1)
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-5.5, 1)
-shape = SubResource("RectangleShape2D_4cdks")
-
 [node name="AvoidanceTimer" type="Timer" parent="."]
 wait_time = 0.3
 
@@ -129,5 +168,16 @@ wait_time = 0.3
 position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_aqndk")
 
+[node name="StunTimer" type="Timer" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_t8rv6")
+debug_color = Color(0.831373, 0.0823529, 0.0901961, 0.419608)
+
 [connection signal="timeout" from="AvoidanceTimer" to="." method="_on_avoidance_timer_timeout"]
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
