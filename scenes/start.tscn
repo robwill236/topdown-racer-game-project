@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cljv8u82w6jjb"]
+
+[ext_resource type="Texture2D" uid="uid://n1hym0wj3aha" path="res://Assets/Backgrounds/PNG/Decor/Start.png" id="1_uqf6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1jw"]
+size = Vector2(20, 964)
+
+[node name="Start" type="StaticBody2D"]
+position = Vector2(129, 454)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-151, 478)
+shape = SubResource("RectangleShape2D_uf1jw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(62, 457)
+rotation = 1.5708
+scale = Vector2(0.412209, 0.429451)
+texture = ExtResource("1_uqf6h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(568, 335)

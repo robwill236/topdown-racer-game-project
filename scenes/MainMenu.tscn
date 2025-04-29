@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4cgfky7j05v2"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gy16s"]
+[ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="1_tfmus"]
+[ext_resource type="FontFile" uid="uid://cvcxw7njdateh" path="res://Assets/Font/Montserrat-Medium.ttf" id="2_gjusr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2kjs"]
+bg_color = Color(0.069513, 0.681347, 0.710986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg2i8"]
+bg_color = Color(0.0815289, 0.7562, 0.788861, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6w41"]
+bg_color = Color(0.0850851, 0.772413, 0.805715, 1)
+
+[node name="MainMenu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gy16s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 0.831373)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -220.0
+offset_right = 384.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tfmus")
+theme_override_font_sizes/font_size = 40
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gjusr")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_v2kjs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sg2i8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q6w41")
+text = "RESUME"
+
+[node name="Player" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gjusr")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_v2kjs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sg2i8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q6w41")
+text = "PLAYER"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gjusr")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_v2kjs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sg2i8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q6w41")
+text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
