@@ -23,6 +23,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Player.position.x = clamp($Player.position.x, 320, 850)
 	if Input.is_action_pressed("ui_accept"):
 		game_running = true
 		$HUD.get_node("Label").hide()
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 	if game_running:
 		speed = START_SPEED + score / SPEED_MODIFIER
 		$ParallaxBackground.scroll_offset += scroll_speed * delta
-		$Player.position.x = clamp($Player.position.x, 300, 880)
+		
 		score += speed
 		show_score()
 
@@ -54,3 +55,11 @@ func pause_game():
 	$Menu.show()
 	game_running = false
 	$ParallaxBackground.scroll_speed = Vector2(0, 0)
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if !game_running:
+			resume_game()
+		else:
+			pause_game()

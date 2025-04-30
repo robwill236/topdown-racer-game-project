@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum PlayerState { IDLE, ATTACK, STUNNED }
 
 @export var speed: float = 250.0
+@onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
@@ -61,6 +62,7 @@ func set_state(new_state: PlayerState) -> void:
 
 func calculate_states() -> void:
 	if Input.is_action_just_pressed("attack"):
+		sfx_kicking.play()
 		set_state(PlayerState.ATTACK)
 	elif get_movement_input() != Vector2.ZERO:
 		set_state(PlayerState.IDLE)

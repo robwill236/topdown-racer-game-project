@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4f8bn6y7jdva"]
+
+[gd_scene load_steps=11 format=3 uid="uid://c4f8bn6y7jdva"]
 
 [ext_resource type="Script" path="res://scenes/enemies/melee_enemy.gd" id="1_d0vt5"]
-[ext_resource type="Texture2D" uid="uid://b2hyoo6h6kqjl" path="res://assets/characters/enemies/EnemyRacerSpritesheet.png" id="2_pv6ko"]
+[ext_resource type="Texture2D" uid="uid://b02lfvcqb0ofc" path="res://Assets/Characters/enemies/EnemySpriteSheet.png" id="2_qus4o"]
+[ext_resource type="AudioStream" uid="uid://bk02wxfpllx2k" path="res://Assets/Sound/kick_enemy.mp3" id="3_6bakr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdks"]
 size = Vector2(11, 12)
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjcig"]
 radius = 26.0
@@ -168,6 +171,9 @@ wait_time = 0.3
 position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_aqndk")
 
+[node name="sfx_kicking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6bakr")
+
 [node name="StunTimer" type="Timer" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -176,6 +182,7 @@ shape = SubResource("CapsuleShape2D_aqndk")
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_t8rv6")
 debug_color = Color(0.831373, 0.0823529, 0.0901961, 0.419608)
+
 
 [connection signal="timeout" from="AvoidanceTimer" to="." method="_on_avoidance_timer_timeout"]
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

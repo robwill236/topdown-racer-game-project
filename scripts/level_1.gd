@@ -25,7 +25,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	$Player.position.x = clamp($Player.position.x, 300, 880)
 	if Input.is_action_pressed("ui_accept"):
 		game_running = true
 		$HUD.get_node("Label").hide()
@@ -37,7 +37,6 @@ func _process(delta: float) -> void:
 		#$Player.position.y -= speed
 		#$Camera2D.position.y -= speed  
 		#$MeleeEnemy.position.y -= speed  
-		$Player.position.x = clamp($Player.position.x, 300, 880)
 		score += speed
 		show_score()
 		
@@ -51,10 +50,10 @@ func show_score():
 
 func _unhandled_input(event):		
 	if event.is_action_pressed("ui_cancel"):
-		#get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
-		#get_node(".").add_child(pause_menu.instantiate())
-		#get_tree().root.add_child(pause_menu.instantiate())
-		pause_game()
+		if !game_running:
+			resume_game()
+		else:
+			pause_game()
 
 
 func resume_game():

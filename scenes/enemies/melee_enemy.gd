@@ -8,8 +8,12 @@ const DISTANCE_THRESHOLD = 25.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var avoidance_timer: Timer = $AvoidanceTimer
 @onready var detector: Area2D = $Detector
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
 @onready var stun_timer: Timer = $StunTimer
 @onready var visual: Node2D = $Visual
+
 
 
 var _state: EnemyState = EnemyState.FOLLOW
@@ -94,6 +98,7 @@ func attack() -> void:
 		visual.scale.x = -1
 
 	animation_player.play("attack")
+	sfx_kicking.play()
 	SignalManager.on_hit.emit(20, self)
 
 func back_to_monitoring() -> void:
