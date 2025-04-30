@@ -1,60 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://6lq8uiuk0mmc"]
+[gd_scene load_steps=8 format=3 uid="uid://6lq8uiuk0mmc"]
 
-[ext_resource type="Texture2D" uid="uid://n1hym0wj3aha" path="res://Assets/Backgrounds/PNG/Decor/Start.png" id="1_mrvmk"]
-[ext_resource type="Texture2D" uid="uid://bto12ybwe7f5u" path="res://Assets/Backgrounds/PNG/Background_Tiles/plx-1.png" id="2_2wfku"]
+[ext_resource type="Script" path="res://scripts/level_2.gd" id="1_eft2w"]
+[ext_resource type="PackedScene" uid="uid://clnqyarndaon4" path="res://scenes/background2.tscn" id="2_ket0n"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="3_8g45b"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="3_mf0yb"]
-[ext_resource type="Texture2D" uid="uid://bxfujg708bvww" path="res://Assets/Backgrounds/PNG/Road_01/Road_01_Tile_03/Road_01_Tile_03.png" id="3_xf8hn"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="4_081tj"]
 [ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/Test/HUD.tscn" id="5_sfcw6"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu.tscn" id="6_q87xj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6ox1"]
-size = Vector2(20, 964)
-
 [node name="Level2" type="Node"]
+script = ExtResource("1_eft2w")
 
-[node name="Start" type="StaticBody2D" parent="."]
-position = Vector2(129, 454)
-rotation = -1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
-position = Vector2(-151, 478)
-shape = SubResource("RectangleShape2D_r6ox1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Start"]
-position = Vector2(62, 457)
-rotation = 1.5708
-scale = Vector2(0.412209, 0.429451)
-texture = ExtResource("1_mrvmk")
-
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2"]
-texture = ExtResource("2_2wfku")
-centered = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
-motion_scale = Vector2(1, 0.6)
-motion_mirroring = Vector2(0, 648)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("3_xf8hn")
-centered = false
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_ket0n")]
+script = ExtResource("3_8g45b")
 
 [node name="Player" parent="." instance=ExtResource("3_mf0yb")]
 position = Vector2(625, 529)
 collision_layer = 2
 collision_mask = 4
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(568, 335)
-
 [node name="MeleeEnemy" parent="." instance=ExtResource("4_081tj")]
 position = Vector2(456, 536)
 
 [node name="HUD" parent="." instance=ExtResource("5_sfcw6")]
-visible = false
 
 [node name="Menu" parent="." instance=ExtResource("6_q87xj")]
-visible = false
