@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbm5creh8ukeb"
-path="res://.godot/imported/wheels&hydrant.png-50726021ebbff1b4f1ea0919920340dc.ctex"
+path="res://.godot/imported/wheels&hydrant.png-1f34715b97fdec70b1131567aeb31882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/city/PNG/City1/Pale/wheels&hydrant.png"
-dest_files=["res://.godot/imported/wheels&hydrant.png-50726021ebbff1b4f1ea0919920340dc.ctex"]
+source_file="res://assets/backgrounds/city/PNG/City1/Pale/wheels&hydrant.png"
+dest_files=["res://.godot/imported/wheels&hydrant.png-1f34715b97fdec70b1131567aeb31882.ctex"]
 
 [params]
 
