@@ -7,6 +7,8 @@ const DISTANCE_THRESHOLD = 25.0
 @onready var avoidance_timer: Timer = $AvoidanceTimer
 @onready var detector: Area2D = $Detector
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
+
 
 var _player_detection_system: DetectionSystem
 var _player_detectors: Dictionary = {
@@ -78,6 +80,7 @@ func attack() -> void:
 		sprite_2d.flip_h = true
 
 	animation_player.play("attack")
+	sfx_kicking.play()
 	SignalManager.on_hit.emit(20, self)
 
 func back_to_monitoring() -> void:

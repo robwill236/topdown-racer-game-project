@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cif1dw0b6spxl"]
+[gd_scene load_steps=12 format=3 uid="uid://cif1dw0b6spxl"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_rshk8"]
-[ext_resource type="Texture2D" uid="uid://c3wfnvis1ymhx" path="res://assets/characters/player/RacerSpriteSheet1.png" id="2_2mauf"]
+[ext_resource type="Texture2D" uid="uid://c3wfnvis1ymhx" path="res://Assets/Characters/player/RacerSpriteSheet1.png" id="2_2mauf"]
 [ext_resource type="Script" path="res://scenes/player/detection_system.gd" id="3_lo65b"]
+[ext_resource type="AudioStream" uid="uid://bci6vtadnylii" path="res://Assets/Sound/kick.mp3" id="4_fxjg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdh1i"]
 size = Vector2(11, 12)
@@ -136,6 +137,9 @@ rotation = 3.14159
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionSystem/LeftDetector"]
 position = Vector2(43, 0)
 shape = SubResource("RectangleShape2D_drhdw")
+
+[node name="sfx_kicking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fxjg6")
 
 [connection signal="body_entered" from="Visual/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
