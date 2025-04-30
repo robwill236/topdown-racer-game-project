@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dljib20dke6nl"]
+
+[ext_resource type="AudioStream" uid="uid://dg61sjpodphq" path="res://Assets/Sound/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3" id="1_kxbg8"]
+[ext_resource type="AudioStream" uid="uid://cq2lklnkpf0ub" path="res://Assets/Sound/sfx-motorcycle-doppler-101211.mp3" id="2_k2icr"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_kxbg8")
+volume_db = -7.027
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k2icr")
+max_polyphony = 10
