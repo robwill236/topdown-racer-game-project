@@ -8,6 +8,7 @@ enum PlayerState { IDLE, ATTACK, STUNNED }
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
 @onready var stun_timer = $StunTimer
+@onready var hitbox = $Visual/Hitbox
 
 const MARGIN: float = 32
 
@@ -81,10 +82,8 @@ func take_damage(damage: int, source: Node) -> void:
 	if source.is_in_group(Constants.ENEMIES_GROUP):
 		_health -= damage
 	
-	print(_health)
-	
 	if _health <= 0:
-		print(_health)
+		pass
 
 func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected

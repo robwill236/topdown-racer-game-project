@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8bribbdohoh6"
-path="res://.godot/imported/land_16.png-8239e20f334c8d7345706daa3ac9d000.ctex"
+path="res://.godot/imported/land_16.png-e95d422297e68209e6b96528dccb6f85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/desert/PNG/land_16.png"
-dest_files=["res://.godot/imported/land_16.png-8239e20f334c8d7345706daa3ac9d000.ctex"]
+source_file="res://assets/backgrounds/desert/PNG/land_16.png"
+dest_files=["res://.godot/imported/land_16.png-e95d422297e68209e6b96528dccb6f85.ctex"]
 
 [params]
 
