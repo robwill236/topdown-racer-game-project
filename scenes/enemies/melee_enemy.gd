@@ -106,7 +106,8 @@ func back_to_monitoring() -> void:
 
 func take_damage() -> void:
 	_health -= 5
-	
+
+	print(_health)
 	if _health <= 0:
 		queue_free()
 

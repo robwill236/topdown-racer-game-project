@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl15acjirinvn"
-path="res://.godot/imported/hydrant.png-6fa655d1e94e87b9b17ffb66c2488f7c.ctex"
+path="res://.godot/imported/hydrant.png-b04f78a5eb84fc442601f30f59177dc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/hydrant.png"
-dest_files=["res://.godot/imported/hydrant.png-6fa655d1e94e87b9b17ffb66c2488f7c.ctex"]
+source_file="res://assets/backgrounds/hydrant.png"
+dest_files=["res://.godot/imported/hydrant.png-b04f78a5eb84fc442601f30f59177dc5.ctex"]
 
 [params]
 

@@ -1,13 +1,11 @@
-
-[gd_scene load_steps=11 format=3 uid="uid://c4f8bn6y7jdva"]
+[gd_scene load_steps=13 format=3 uid="uid://c4f8bn6y7jdva"]
 
 [ext_resource type="Script" path="res://scenes/enemies/melee_enemy.gd" id="1_d0vt5"]
-[ext_resource type="Texture2D" uid="uid://b02lfvcqb0ofc" path="res://Assets/Characters/enemies/EnemySpriteSheet.png" id="2_qus4o"]
-[ext_resource type="AudioStream" uid="uid://bk02wxfpllx2k" path="res://Assets/Sound/kick_enemy.mp3" id="3_6bakr"]
+[ext_resource type="Texture2D" uid="uid://b2hyoo6h6kqjl" path="res://assets/characters/enemies/EnemyRacerSpritesheet.png" id="2_mnlsv"]
+[ext_resource type="AudioStream" uid="uid://bk02wxfpllx2k" path="res://assets/Sound/kick_enemy.mp3" id="3_6bakr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdks"]
 size = Vector2(11, 12)
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjcig"]
 radius = 26.0
@@ -37,7 +35,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_syswh"]
@@ -141,9 +139,8 @@ script = ExtResource("1_d0vt5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Visual"]
 scale = Vector2(5.5, 5.5)
-texture = ExtResource("2_pv6ko")
+texture = ExtResource("2_mnlsv")
 hframes = 5
-frame = 2
 
 [node name="Hitbox" type="Area2D" parent="Visual"]
 position = Vector2(55, -1)
@@ -154,6 +151,7 @@ position = Vector2(-5.5, 1)
 shape = SubResource("RectangleShape2D_4cdks")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_yjcig")
 
@@ -166,6 +164,7 @@ libraries = {
 wait_time = 0.3
 
 [node name="Detector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 position = Vector2(1, -10)
@@ -177,12 +176,12 @@ stream = ExtResource("3_6bakr")
 [node name="StunTimer" type="Timer" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_t8rv6")
 debug_color = Color(0.831373, 0.0823529, 0.0901961, 0.419608)
-
 
 [connection signal="timeout" from="AvoidanceTimer" to="." method="_on_avoidance_timer_timeout"]
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
