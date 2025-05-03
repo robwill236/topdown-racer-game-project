@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://8ebokw3dj52b" path="res://Assets/Backgrounds/PNG/Decor/Tree_02.png" id="12_mrtq4"]
 [ext_resource type="Texture2D" uid="uid://dll6myd1y1h4a" path="res://Assets/Backgrounds/PNG/Background_Tiles/Water_Tile.png" id="13_hm5oa"]
 [ext_resource type="Texture2D" uid="uid://c4xecmfqvyohv" path="res://Assets/Backgrounds/PNG/Decor/Decor_Building_02.png" id="14_td476"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/Test/HUD.tscn" id="17_qvn3d"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/HUD.tscn" id="17_qvn3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sc5nd"]
 texture = ExtResource("2_x1kn0")

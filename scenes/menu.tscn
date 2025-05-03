@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://duoeqnsuj876j"]
 
 [ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="1_qn17v"]
-[ext_resource type="FontFile" uid="uid://cvcxw7njdateh" path="res://Assets/Font/Montserrat-Medium.ttf" id="2_pcn4g"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_v7xn3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gay4"]
 bg_color = Color(0, 0.585726, 0.109276, 1)
@@ -13,6 +13,7 @@ bg_color = Color(0, 0.568096, 0.424495, 1)
 bg_color = Color(0, 0.568627, 0.423529, 1)
 
 [node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_v7xn3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -47,10 +48,10 @@ text = "MENU"
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_pcn4g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qn17v")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
@@ -58,23 +59,38 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
 text = "RESUME"
 
 [node name="Player" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_pcn4g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qn17v")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
 text = "PLAYER"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="Game Mode" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_pcn4g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qn17v")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
+text = "GAME MODE"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qn17v")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_5gay4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ibu5v")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qmhxl")
 text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Game Mode" to="." method="_on_game_mode_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

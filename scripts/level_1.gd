@@ -8,28 +8,26 @@ const SPEED_MODIFIER: int = 10000
 const CAM_START_POS := Vector2i(576, 324)
 var score: int 
 var game_running: bool
-var pause_menu = load("res://scenes/MainMenu.tscn")
 var current_position = Vector2(0,0)
 var max_x = 100
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	#$CanvasLayer.hide()
+	MusicPlayer.play()
 	$HUD/Button.hide()
 	$HUD/Button2.hide()
 	$Menu.hide()
 	$Menu.get_node("MarginContainer/VBoxContainer/Resume").pressed.connect(resume_game)
-	$Menu.get_node("MarginContainer/VBoxContainer/Quit").pressed.connect(quit_game)
 	$HUD.get_node("Button").pressed.connect(pause_game)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$Player.position.x = clamp($Player.position.x, 300, 880)
+	$Player.position.y = clamp($Player.position.y, 70, 600)
 	if Input.is_action_pressed("ui_accept"):
 		game_running = true
-		$HUD.get_node("Label").hide()
-		$HUD.get_node("Label2").hide()
+		hide_hud()
 		
 	if game_running:
 		speed = START_SPEED + score / SPEED_MODIFIER
@@ -40,8 +38,6 @@ func _process(delta: float) -> void:
 		score += speed
 		show_score()
 		
-		
-
 
 func show_score():
 	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score/SCORE_MODIFIER)
@@ -51,6 +47,7 @@ func show_score():
 func _unhandled_input(event):		
 	if event.is_action_pressed("ui_cancel"):
 		if !game_running:
+			hide_hud()
 			resume_game()
 		else:
 			pause_game()
@@ -59,13 +56,16 @@ func _unhandled_input(event):
 func resume_game():
 	game_running = true
 	$Menu.hide()
-
-
-func quit_game():
-	get_tree().quit()
+	MusicPlayer.play()
 
 
 func pause_game():
 	$Menu.show()
 	game_running = false
 	$ParallaxBackground.scroll_speed = Vector2(0, 0)
+	MusicPlayer.stop()
+
+
+func hide_hud():
+	$HUD.get_node("Label").hide()
+	$HUD.get_node("Label2").hide()
