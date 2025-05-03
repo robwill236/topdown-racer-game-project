@@ -37,7 +37,10 @@ func _process(delta: float) -> void:
 		#$MeleeEnemy.position.y -= speed  
 		score += speed
 		show_score()
-		
+	
+	if Global.score1 < score:
+		Global.score1 = score
+
 
 func show_score():
 	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score/SCORE_MODIFIER)
