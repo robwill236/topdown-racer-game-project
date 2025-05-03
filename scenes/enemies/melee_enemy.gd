@@ -62,7 +62,6 @@ func get_direction_to_target() -> Vector2:
 
 func get_player_detection_system() -> DetectionSystem:
 	var player_ref = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
-
 	return player_ref.get_node("DetectionSystem")
 
 func evaluate_attack_position(player_side: String) -> void:
@@ -73,7 +72,7 @@ func evaluate_attack_position(player_side: String) -> void:
 
 func attack() -> void:
 	detector.monitoring = false
-	
+	print("hit")
 	if _current_target == Constants.LEFT_SIDE_DETECTOR:
 		sprite_2d.flip_h = false
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dyr36kcmhq8t3"]
+[gd_scene load_steps=39 format=3 uid="uid://dyr36kcmhq8t3"]
 
 [ext_resource type="Texture2D" uid="uid://dim11jsiy48mi" path="res://Assets/Backgrounds/PNG/Background_Tiles/Grass_Tile.png" id="1_0fn0v"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_5vwpa"]
@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://8ebokw3dj52b" path="res://Assets/Backgrounds/PNG/Decor/Tree_02.png" id="12_mrtq4"]
 [ext_resource type="Texture2D" uid="uid://dll6myd1y1h4a" path="res://Assets/Backgrounds/PNG/Background_Tiles/Water_Tile.png" id="13_hm5oa"]
 [ext_resource type="Texture2D" uid="uid://c4xecmfqvyohv" path="res://Assets/Backgrounds/PNG/Decor/Decor_Building_02.png" id="14_td476"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/HUD.tscn" id="17_qvn3d"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="17_qvn3d"]
+[ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="18_p4ib8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sc5nd"]
 texture = ExtResource("2_x1kn0")
@@ -21910,6 +21911,9 @@ size = Vector2(32.5, 884)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdebn"]
 size = Vector2(69, 267)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2yhy"]
+bg_color = Color(0.171039, 0.171039, 0.171039, 1)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_5vwpa")
 
@@ -22033,5 +22037,39 @@ position = Vector2(-58.7808, 413)
 rotation = 1.5708
 
 [node name="HUD" parent="." instance=ExtResource("17_qvn3d")]
+
+[node name="Name" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("18_p4ib8")
+theme_override_font_sizes/font_size = 24
+text = "Name"
+horizontal_alignment = 1
+
+[node name="PlayerName" type="ReferenceRect" parent="Name"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+border_color = Color(0, 0.568627, 0.423529, 1)
+border_width = 2.0
+
+[node name="LineEdit" type="LineEdit" parent="Name/PlayerName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("18_p4ib8")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_p2yhy")
+placeholder_text = "Player Name"
+alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
