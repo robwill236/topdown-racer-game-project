@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bn6s0mogqjqhs"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_7g1vc"]
-[ext_resource type="PackedScene" uid="uid://dm2nlupf7khyq" path="res://scenes/background.tscn" id="3_3wtcs"]
+[ext_resource type="PackedScene" uid="uid://dm2nlupf7khyq" path="res://scenes/level_background/background.tscn" id="3_3wtcs"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="6_u4dxw"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="7_vp3ax"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/HUD.tscn" id="8_jlayb"]
-[ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu.tscn" id="11_dfx6w"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="8_jlayb"]
+[ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="11_dfx6w"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_7g1vc")
