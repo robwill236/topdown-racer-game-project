@@ -8,7 +8,6 @@ const DISTANCE_THRESHOLD = 25.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var avoidance_timer: Timer = $AvoidanceTimer
 @onready var detector: Area2D = $Detector
-
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
 @onready var stun_timer: Timer = $StunTimer
@@ -25,6 +24,7 @@ var _player_detectors: Dictionary = {
 var _current_target: String
 var _avoidance_vector: Vector2 = Vector2.ZERO
 var _health: int = 30
+var is_attacking: bool = false
 
 
 func _ready():
@@ -33,7 +33,7 @@ func _ready():
 	_player_detection_system = get_player_detection_system()
 
 func _physics_process(delta):
-	if _state != EnemyState.STUNNED:
+	if _state != EnemyState.STUNNED and !is_attacking:
 		var direction = get_direction_to_target()
 		var target_position = _player_detection_system.get_left_detector_position() if _current_target == Constants.LEFT_SIDE_DETECTOR else _player_detection_system.get_right_detector_position()
 		var distance_to_target = position.distance_to(target_position)
@@ -53,6 +53,9 @@ func set_detector(detection_side: String, is_detected: bool):
 func set_state(new_state: EnemyState) -> void:
 	if new_state == _state:
 		return
+	
+	if is_attacking and new_state != EnemyState.STUNNED:
+		return
 
 	_state = new_state
 	
@@ -62,6 +65,7 @@ func set_state(new_state: EnemyState) -> void:
 		EnemyState.ATTACK:
 			attack()
 		EnemyState.STUNNED:
+			is_attacking = false
 			animation_player.play("stun")
 			stun_timer.start()
 
@@ -90,6 +94,7 @@ func get_player_detection_system() -> DetectionSystem:
 	return player_ref.get_node("DetectionSystem")
 
 func attack() -> void:
+	is_attacking = true
 	detector.monitoring = false
 	
 	if _current_target == Constants.LEFT_SIDE_DETECTOR:
@@ -98,8 +103,6 @@ func attack() -> void:
 		visual.scale.x = -1
 
 	animation_player.play("attack")
-	sfx_kicking.play()
-	SignalManager.on_hit.emit(20, self)
 
 func back_to_monitoring() -> void:
 	detector.monitoring = true
@@ -107,7 +110,6 @@ func back_to_monitoring() -> void:
 func take_damage() -> void:
 	_health -= 5
 
-	print(_health)
 	if _health <= 0:
 		queue_free()
 
@@ -125,9 +127,23 @@ func _on_detector_body_entered(body):
 
 
 func _on_stun_timer_timeout():
+	back_to_monitoring()
 	set_state(EnemyState.FOLLOW)
 
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group(Constants.PLAYER_GROUP):
 		take_damage()
+
+
+func _on_hitbox_body_entered(body):
+	sfx_kicking.play()
+	SignalManager.on_hit.emit(20, self)
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "attack":
+		is_attacking = false
+		back_to_monitoring()
+		set_state(EnemyState.FOLLOW)
+		
