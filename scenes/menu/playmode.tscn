@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmkxap6ub7n0b"]
 
-[ext_resource type="Script" path="res://playmode.gd" id="1_7fb0t"]
+[ext_resource type="Script" path="res://scripts/playmode.gd" id="1_7fb0t"]
 [ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="1_73o2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkb7w"]

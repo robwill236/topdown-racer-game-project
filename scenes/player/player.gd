@@ -4,7 +4,6 @@ enum PlayerState { IDLE, ATTACK, STUNNED }
 
 @export var speed: float = 250.0
 @onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
 @onready var stun_timer: Timer = $StunTimer
@@ -13,7 +12,7 @@ enum PlayerState { IDLE, ATTACK, STUNNED }
 const MARGIN: float = 32
 
 var _state: PlayerState = PlayerState.IDLE
-var _health: int = 100
+var _health = Global.lives
 var _is_attack_anim_finished: bool = true
 var _detectors: Dictionary = {
 	Constants.LEFT_SIDE_DETECTOR: false, 
@@ -24,6 +23,7 @@ func _ready():
 	SignalManager.left_detection.connect(set_detector)
 	SignalManager.right_detection.connect(set_detector)
 	SignalManager.on_hit.connect(take_damage)
+	
 
 func _physics_process(delta):
 	if _state != PlayerState.STUNNED:
@@ -81,13 +81,15 @@ func flip_player() -> void:
 func take_damage(damage: int, source: Node) -> void:
 	if source.is_in_group(Constants.ENEMIES_GROUP):
 		_health -= damage
+		Global.lives = _health
 	
 	if _health <= 0:
 		print(_health)
 
 func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected
-	
+	Global.lives -= 1
+
 func on_hazard_hit() -> void:
 	set_state(PlayerState.STUNNED)
 

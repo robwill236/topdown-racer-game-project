@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var player_name: LineEdit = $MarginContainer/VBoxContainer/Name/PlayerName/LineEdit
+#@onready var player_name: LineEdit = $MarginContainer/VBoxContainer/Name/PlayerName/LineEdit
 @onready var score_1: Label = $MarginContainer/VBoxContainer/Level1/score1
 @onready var score_2: Label = $MarginContainer/VBoxContainer/Level2/score2
 @onready var score_3: Label = $MarginContainer/VBoxContainer/Level3/score3
@@ -25,7 +25,7 @@ func _input(event):
 
 func _on_save_pressed() -> void:
 	var config = ConfigFile.new()
-	config.set_value("Information", "player_name", player_name.text)
+	#config.set_value("Information", "player_name", player_name.text)
 	config.set_value("Highest Score", "level_1", score_1.text)
 	config.set_value("Highest Score", "level_2", score_2.text)
 	config.set_value("Highest Score", "level_3", score_3.text)
@@ -37,7 +37,7 @@ func _on_load_pressed() -> void:
 	var result = config.load("user://player.cfg")
 	
 	if result == OK:
-		player_name.text = config.get_value("Information", "player_name")
+		#player_name.text = config.get_value("Information", "player_name")
 		score_1.text = config.get_value("Highest Score", "level_1")
 		score_2.text = config.get_value("Highest Score", "level_2")
 		score_3.text = config.get_value("Highest Score", "level_3")

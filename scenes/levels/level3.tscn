@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://d0ibf5jr1whr5"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_80jfk"]
-[ext_resource type="PackedScene" uid="uid://bfk3endjoqekc" path="res://scenes/background3.tscn" id="2_6jhsn"]
+[ext_resource type="PackedScene" uid="uid://bfk3endjoqekc" path="res://scenes/level_background/background3.tscn" id="2_6jhsn"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="3_tkbqq"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="4_q0lul"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="5_voll3"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/HUD.tscn" id="6_0vkft"]
-[ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu.tscn" id="7_cc87f"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="6_0vkft"]
+[ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="7_cc87f"]
 [ext_resource type="PackedScene" uid="uid://ywtkpqqpumyl" path="res://scenes/obstacle_manager/obstacle_manager.tscn" id="8_unogo"]
 [ext_resource type="PackedScene" uid="uid://dq3nvn7kje7n6" path="res://scenes/obstacle_lane/obstacle_lane.tscn" id="9_mukrk"]
 [ext_resource type="PackedScene" uid="uid://q16ad0u4gni4" path="res://scenes/road_hazard/road_hazard.tscn" id="10_v3hd6"]
@@ -19,8 +19,6 @@ script = ExtResource("3_tkbqq")
 
 [node name="Player" parent="." instance=ExtResource("4_q0lul")]
 position = Vector2(625, 529)
-collision_layer = 2
-collision_mask = 4
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_voll3")]
 position = Vector2(456, 536)

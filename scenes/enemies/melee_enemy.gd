@@ -87,13 +87,12 @@ func get_direction_to_target() -> Vector2:
 
 func get_player_detection_system() -> DetectionSystem:
 	var player_ref = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
-
 	return player_ref.get_node("DetectionSystem")
 
 func attack() -> void:
 	is_attacking = true
 	detector.monitoring = false
-	
+	print("hit")
 	if _current_target == Constants.LEFT_SIDE_DETECTOR:
 		visual.scale.x = 1
 	else:
