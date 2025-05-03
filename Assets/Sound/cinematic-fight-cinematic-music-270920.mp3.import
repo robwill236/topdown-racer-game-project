@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dx85lt532r4ex"
-path="res://.godot/imported/cinematic-fight-cinematic-music-270920.mp3-37afbe8244f988a53fc4349a42ae9f43.mp3str"
+path="res://.godot/imported/cinematic-fight-cinematic-music-270920.mp3-c9f98e76a711a55f03bb67b40161b038.mp3str"
 
 [deps]
 
-source_file="res://assets/Sound/cinematic-fight-cinematic-music-270920.mp3"
-dest_files=["res://.godot/imported/cinematic-fight-cinematic-music-270920.mp3-37afbe8244f988a53fc4349a42ae9f43.mp3str"]
+source_file="res://Assets/Sound/cinematic-fight-cinematic-music-270920.mp3"
+dest_files=["res://.godot/imported/cinematic-fight-cinematic-music-270920.mp3-c9f98e76a711a55f03bb67b40161b038.mp3str"]
 
 [params]
 

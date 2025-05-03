@@ -7,7 +7,7 @@ enum PlayerState { IDLE, ATTACK, STUNNED }
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
-@onready var stun_timer = $StunTimer
+@onready var stun_timer: Timer = $StunTimer
 @onready var hitbox = $Visual/Hitbox
 
 const MARGIN: float = 32
@@ -83,11 +83,11 @@ func take_damage(damage: int, source: Node) -> void:
 		_health -= damage
 	
 	if _health <= 0:
-		pass
+		print(_health)
 
 func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected
-
+	
 func on_hazard_hit() -> void:
 	set_state(PlayerState.STUNNED)
 
@@ -97,7 +97,6 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_hitbox_body_entered(body):
 	SignalManager.on_hit.emit(20, self)
-
 
 func _on_stun_timer_timeout():
 	set_state(PlayerState.IDLE)

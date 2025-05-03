@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bll2yri8yvllf"
-path="res://.godot/imported/stones_7.png-6e7f1cc84a3d2128092eee3c5f6a9364.ctex"
+path="res://.godot/imported/stones_7.png-5785a0e1d95c41431926689595799b59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/desert/PNG/stones_7.png"
-dest_files=["res://.godot/imported/stones_7.png-6e7f1cc84a3d2128092eee3c5f6a9364.ctex"]
+source_file="res://Assets/Backgrounds/desert/PNG/stones_7.png"
+dest_files=["res://.godot/imported/stones_7.png-5785a0e1d95c41431926689595799b59.ctex"]
 
 [params]
 

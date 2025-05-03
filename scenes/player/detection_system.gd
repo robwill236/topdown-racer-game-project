@@ -11,7 +11,7 @@ func get_right_detector_position() -> Vector2:
 func get_left_detector_position() -> Vector2:
 	return left_detector.global_position + Vector2(-50, 0)
 
-func _on_right_detector_body_entered(body: CharacterBody2D):
+func _on_right_detector_body_entered(_body: CharacterBody2D):
 	SignalManager.right_detection.emit(Constants.RIGHT_SIDE_DETECTOR, true)
 
 
@@ -23,7 +23,7 @@ func _on_right_detector_body_exited(body):
 	SignalManager.right_detection.emit(Constants.RIGHT_SIDE_DETECTOR, false)
 
 
-func _on_left_detector_body_entered(body):
+func _on_left_detector_body_entered(_body):
 	SignalManager.left_detection.emit(Constants.LEFT_SIDE_DETECTOR, true)
 
 

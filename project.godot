@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalManager="*res://singletons/SignalManager.gd"
 MusicPlayer="*res://scenes/Sound/MusicPlayer.tscn"
+Global="*res://Global.gd"
 
 [display]
 

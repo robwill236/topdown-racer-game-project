@@ -136,11 +136,6 @@ script = ExtResource("1_d0vt5")
 
 [node name="Visual" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual"]
-scale = Vector2(5.5, 5.5)
-texture = ExtResource("2_mnlsv")
-hframes = 5
-
 [node name="Hitbox" type="Area2D" parent="Visual"]
 position = Vector2(55, -1)
 monitoring = false
@@ -148,6 +143,11 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/Hitbox"]
 position = Vector2(-5.5, 1)
 shape = SubResource("RectangleShape2D_4cdks")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("2_mnlsv")
+hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

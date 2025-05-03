@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://do8e61tk2uyfw"
-path="res://.godot/imported/Amusette-Regular.ttf-3947e257f3c9ea65fb4a3760666d6aea.fontdata"
+path="res://.godot/imported/Amusette-Regular.ttf-7f8d0ffad4d7383d875e52b46de3f29c.fontdata"
 
 [deps]
 
-source_file="res://assets/Font/Amusette-Font/Amusette-Regular.ttf"
-dest_files=["res://.godot/imported/Amusette-Regular.ttf-3947e257f3c9ea65fb4a3760666d6aea.fontdata"]
+source_file="res://Assets/Font/Amusette-Font/Amusette-Regular.ttf"
+dest_files=["res://.godot/imported/Amusette-Regular.ttf-7f8d0ffad4d7383d875e52b46de3f29c.fontdata"]
 
 [params]
 

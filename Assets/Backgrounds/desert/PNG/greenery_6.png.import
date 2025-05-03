@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcklt6r7mpjdg"
-path="res://.godot/imported/greenery_6.png-bdac2266b0aa4f97ba503218c75e7827.ctex"
+path="res://.godot/imported/greenery_6.png-30cc827b5e5eff23541617647a2b30c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/desert/PNG/greenery_6.png"
-dest_files=["res://.godot/imported/greenery_6.png-bdac2266b0aa4f97ba503218c75e7827.ctex"]
+source_file="res://Assets/Backgrounds/desert/PNG/greenery_6.png"
+dest_files=["res://.godot/imported/greenery_6.png-30cc827b5e5eff23541617647a2b30c8.ctex"]
 
 [params]
 

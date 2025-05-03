@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b18fhvlnkiprk"
-path="res://.godot/imported/AmusetteOutline-Italic.ttf-c9cddb94f37096855475d43e14f7b74c.fontdata"
+path="res://.godot/imported/AmusetteOutline-Italic.ttf-a19ec301d9e124e3ae6a00b96f5d8628.fontdata"
 
 [deps]
 
-source_file="res://assets/Font/Amusette-Font/AmusetteOutline-Italic.ttf"
-dest_files=["res://.godot/imported/AmusetteOutline-Italic.ttf-c9cddb94f37096855475d43e14f7b74c.fontdata"]
+source_file="res://Assets/Font/Amusette-Font/AmusetteOutline-Italic.ttf"
+dest_files=["res://.godot/imported/AmusetteOutline-Italic.ttf-a19ec301d9e124e3ae6a00b96f5d8628.fontdata"]
 
 [params]
 

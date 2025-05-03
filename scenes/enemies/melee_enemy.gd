@@ -8,12 +8,9 @@ const DISTANCE_THRESHOLD = 25.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var avoidance_timer: Timer = $AvoidanceTimer
 @onready var detector: Area2D = $Detector
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
 @onready var stun_timer: Timer = $StunTimer
 @onready var visual: Node2D = $Visual
-
-
 
 var _state: EnemyState = EnemyState.FOLLOW
 var _player_detection_system: DetectionSystem
@@ -124,7 +121,6 @@ func _on_detector_body_entered(body):
 	var perpendicualr = away_from_obstacle.orthogonal()
 	_avoidance_vector = perpendicualr * 4.0
 	avoidance_timer.start()
-
 
 func _on_stun_timer_timeout():
 	back_to_monitoring()
