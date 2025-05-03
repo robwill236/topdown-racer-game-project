@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rtp0cvcfqmpv"
-path="res://.godot/imported/Preview_2D_RPG_Desert_Tileset.png-f5dbb1135d47135c3f570fa489b0f51b.ctex"
+path="res://.godot/imported/Preview_2D_RPG_Desert_Tileset.png-eef57597056cfba6e528f1514f1d7c1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/desert/PNG/Preview_2D_RPG_Desert_Tileset.png"
-dest_files=["res://.godot/imported/Preview_2D_RPG_Desert_Tileset.png-f5dbb1135d47135c3f570fa489b0f51b.ctex"]
+source_file="res://Assets/Backgrounds/desert/PNG/Preview_2D_RPG_Desert_Tileset.png"
+dest_files=["res://.godot/imported/Preview_2D_RPG_Desert_Tileset.png-eef57597056cfba6e528f1514f1d7c1e.ctex"]
 
 [params]
 

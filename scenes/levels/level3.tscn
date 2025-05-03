@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ibf5jr1whr5"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ibf5jr1whr5"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_80jfk"]
 [ext_resource type="PackedScene" uid="uid://bfk3endjoqekc" path="res://scenes/background3.tscn" id="2_6jhsn"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="3_tkbqq"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="4_q0lul"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="5_voll3"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/Test/HUD.tscn" id="6_0vkft"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/HUD.tscn" id="6_0vkft"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu.tscn" id="7_cc87f"]
+[ext_resource type="PackedScene" uid="uid://ywtkpqqpumyl" path="res://scenes/obstacle_manager/obstacle_manager.tscn" id="8_unogo"]
+[ext_resource type="PackedScene" uid="uid://dq3nvn7kje7n6" path="res://scenes/obstacle_lane/obstacle_lane.tscn" id="9_mukrk"]
+[ext_resource type="PackedScene" uid="uid://q16ad0u4gni4" path="res://scenes/road_hazard/road_hazard.tscn" id="10_v3hd6"]
 
 [node name="Level3" type="Node"]
 script = ExtResource("1_80jfk")
@@ -25,3 +28,9 @@ position = Vector2(456, 536)
 [node name="HUD" parent="." instance=ExtResource("6_0vkft")]
 
 [node name="Menu" parent="." instance=ExtResource("7_cc87f")]
+
+[node name="ObstacleManager" parent="." instance=ExtResource("8_unogo")]
+
+[node name="ObstacleLane" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
+
+[node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]

@@ -1,0 +1,216 @@
+[gd_scene load_steps=7 format=3 uid="uid://dc4yjfh647bmi"]
+
+[ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="1_1pioh"]
+[ext_resource type="Script" path="res://scripts/player_info.gd" id="1_tptsi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s20yl"]
+bg_color = Color(0.171039, 0.171039, 0.171039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksbbw"]
+bg_color = Color(0, 0.585726, 0.109276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ga4v"]
+bg_color = Color(0, 0.568096, 0.424495, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4phqw"]
+bg_color = Color(0, 0.568627, 0.423529, 1)
+
+[node name="PlayerInformations" type="CanvasLayer"]
+process_priority = 2
+layer = 2
+script = ExtResource("1_tptsi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.203671, 0.501642, 0.452028, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -220.0
+offset_right = 384.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 40
+text = "PLAYER INFO"
+horizontal_alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 24
+text = "Name"
+horizontal_alignment = 1
+
+[node name="PlayerName" type="ReferenceRect" parent="MarginContainer/VBoxContainer/Name"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+border_color = Color(0, 0.568627, 0.423529, 1)
+border_width = 2.0
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Name/PlayerName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_s20yl")
+placeholder_text = "Player Name"
+alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 24
+text = "Highest Score
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="level1" type="Label" parent="MarginContainer/VBoxContainer/Level1"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+text = "Level 1 (Easy): "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score1" type="Label" parent="MarginContainer/VBoxContainer/Level1"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="level2" type="Label" parent="MarginContainer/VBoxContainer/Level2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+text = "Level 2 (Medium): "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score2" type="Label" parent="MarginContainer/VBoxContainer/Level2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="level3" type="Label" parent="MarginContainer/VBoxContainer/Level3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+text = "Level 3 (Hard): "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score3" type="Label" parent="MarginContainer/VBoxContainer/Level3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ksbbw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ga4v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4phqw")
+text = "Save"
+
+[node name="Load" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ksbbw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ga4v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4phqw")
+text = "Load"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_1pioh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ksbbw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ga4v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4phqw")
+text = "Back to Menu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://duondprbs0wnp"
-path="res://.godot/imported/Sky.png-d85f593ce2ab484db2fbb9d0573c337d.ctex"
+path="res://.godot/imported/Sky.png-a5b40d19a4bae034deed3e6ba69d1577.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/city/PNG/City2/Bright/Sky.png"
-dest_files=["res://.godot/imported/Sky.png-d85f593ce2ab484db2fbb9d0573c337d.ctex"]
+source_file="res://Assets/Backgrounds/city/PNG/City2/Bright/Sky.png"
+dest_files=["res://.godot/imported/Sky.png-a5b40d19a4bae034deed3e6ba69d1577.ctex"]
 
 [params]
 

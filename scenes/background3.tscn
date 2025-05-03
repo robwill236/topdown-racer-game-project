@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfk3endjoqekc"]
 
-[ext_resource type="Texture2D" uid="uid://b0baq0xd4d3v8" path="res://Assets/Backgrounds/bg3.jpg" id="1_0odhh"]
+[ext_resource type="Texture2D" uid="uid://d1wt8hbdi2wkk" path="res://Assets/Backgrounds/bg31.jpg" id="1_xnnwj"]
 [ext_resource type="Texture2D" uid="uid://bxfujg708bvww" path="res://Assets/Backgrounds/PNG/Road_01/Road_01_Tile_03/Road_01_Tile_03.png" id="2_gvrp0"]
 [ext_resource type="Texture2D" uid="uid://dl15acjirinvn" path="res://Assets/Backgrounds/hydrant.png" id="3_tshvl"]
 [ext_resource type="Texture2D" uid="uid://dpl7ec6o73c5n" path="res://Assets/Backgrounds/wheels.png" id="4_5alqo"]
@@ -10,7 +10,8 @@
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0odhh")
+scale = Vector2(1, 1.0043)
+texture = ExtResource("1_xnnwj")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
@@ -18,6 +19,14 @@ motion_scale = Vector2(1, 0.6)
 motion_mirroring = Vector2(0, 648)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_xnnwj")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.6)
+motion_mirroring = Vector2(0, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
 position = Vector2(160.06, 0)
 scale = Vector2(1.2, 1.3)
 texture = ExtResource("2_gvrp0")

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dm2nlupf7khyq" path="res://scenes/background.tscn" id="3_3wtcs"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="6_u4dxw"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="7_vp3ax"]
-[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/Test/HUD.tscn" id="8_jlayb"]
+[ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/HUD.tscn" id="8_jlayb"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu.tscn" id="11_dfx6w"]
 
 [node name="Level1" type="Node"]
@@ -14,8 +14,6 @@ script = ExtResource("1_7g1vc")
 
 [node name="Player" parent="." instance=ExtResource("6_u4dxw")]
 position = Vector2(625, 529)
-collision_layer = 2
-collision_mask = 4
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("7_vp3ax")]
 position = Vector2(456, 536)

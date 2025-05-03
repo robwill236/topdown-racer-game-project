@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dg61sjpodphq"
-path="res://.godot/imported/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3-348d90f715ba81d050568e252454cd79.mp3str"
+path="res://.godot/imported/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3-6d69c9b7dfc933a3e5eee23858ebb58e.mp3str"
 
 [deps]
 
-source_file="res://assets/Sound/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3"
-dest_files=["res://.godot/imported/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3-348d90f715ba81d050568e252454cd79.mp3str"]
+source_file="res://Assets/Sound/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3"
+dest_files=["res://.godot/imported/hand-to-hand-combat-martial-arts-fight-scene-2-313346.mp3-6d69c9b7dfc933a3e5eee23858ebb58e.mp3str"]
 
 [params]
 

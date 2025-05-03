@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://clnqyarndaon4"]
+[gd_scene load_steps=8 format=3 uid="uid://clnqyarndaon4"]
 
 [ext_resource type="Texture2D" uid="uid://cat4crkur68jx" path="res://Assets/Backgrounds/desert/PNG/bg2.jpg" id="1_x8per"]
 [ext_resource type="Texture2D" uid="uid://d4jj7yvfugw02" path="res://Assets/Backgrounds/PNG/Road_01/Road_01_Tile_04/Layers/Road_Main.png" id="2_4w67y"]
+[ext_resource type="Texture2D" uid="uid://eya5xq4yfyp4" path="res://Assets/Backgrounds/desert/PNG/bg.jpg" id="2_hsil8"]
 [ext_resource type="Texture2D" uid="uid://bhqs108mbesjn" path="res://Assets/Backgrounds/desert/PNG/greenery_1.png" id="3_kcrtt"]
 [ext_resource type="Texture2D" uid="uid://q1lc0368y0ik" path="res://Assets/Backgrounds/desert/PNG/tree_4.png" id="4_8dxlj"]
 [ext_resource type="Texture2D" uid="uid://cs4nbfxevcr2i" path="res://Assets/Backgrounds/desert/PNG/greenery_4.png" id="5_s4idk"]
@@ -18,6 +19,14 @@ motion_scale = Vector2(1, 0.6)
 motion_mirroring = Vector2(0, 648)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("2_hsil8")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.6)
+motion_mirroring = Vector2(0, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
 position = Vector2(183.82, -5)
 scale = Vector2(1.5, 1.3)
 texture = ExtResource("2_4w67y")
