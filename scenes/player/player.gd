@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-enum PlayerState { IDLE, ATTACK }
+enum PlayerState { IDLE, ATTACK, STUNNED }
 
 @export var speed: float = 250.0
 @onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
+@onready var stun_timer: Timer = $StunTimer
+@onready var hitbox = $Visual/Hitbox
 
 const MARGIN: float = 32
 
@@ -24,11 +26,14 @@ func _ready():
 	
 
 func _physics_process(delta):
-	var input = get_movement_input()
-	velocity = input * speed
-	
-	move_and_slide()
-	calculate_states()
+	if _state != PlayerState.STUNNED:
+		var input = get_movement_input()
+
+		velocity = input * speed
+		
+		move_and_slide()
+
+		calculate_states()
 
 func get_movement_input() -> Vector2:
 	var player_vector = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -39,7 +44,7 @@ func set_state(new_state: PlayerState) -> void:
 	if new_state == _state:
 		return
 	
-	if !_is_attack_anim_finished:
+	if !_is_attack_anim_finished and new_state != PlayerState.STUNNED:
 		return
 
 	_state = new_state
@@ -51,6 +56,10 @@ func set_state(new_state: PlayerState) -> void:
 			flip_player()
 			_is_attack_anim_finished = false
 			animation_player.play("attack")
+		PlayerState.STUNNED:
+			_is_attack_anim_finished = true
+			animation_player.play("stun")
+			stun_timer.start()
 
 func calculate_states() -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -81,10 +90,15 @@ func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected
 	Global.lives -= 1
 
+func on_hazard_hit() -> void:
+	set_state(PlayerState.STUNNED)
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack":
 		_is_attack_anim_finished = true
 
 func _on_hitbox_body_entered(body):
 	SignalManager.on_hit.emit(20, self)
-	
+
+func _on_stun_timer_timeout():
+	set_state(PlayerState.IDLE)
