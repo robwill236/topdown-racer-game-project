@@ -1,5 +1,6 @@
 extends Node
 
+signal health_depleted
 @export var scroll_speed := Vector2(0, 500)
 var game_over_scene = load("res://scenes/menu/game_over.tscn")
 var speed: float
@@ -9,6 +10,7 @@ const SPEED_MODIFIER: int = 10000
 var score: int 
 var game_running: bool
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MusicPlayer.play()
@@ -17,7 +19,7 @@ func _ready() -> void:
 	$Menu.hide()
 	$Menu.get_node("MarginContainer/VBoxContainer/Resume").pressed.connect(resume_game)
 	$HUD.get_node("Button").pressed.connect(pause_game)
-	Global.lives = 10     #change back later to 10
+	Global.lives = 100     #change back later to 10
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -40,6 +42,7 @@ func _process(delta: float) -> void:
 		Global.score1 = score
 		
 	if Global.lives <= 0:
+		health_depleted.emit()
 		game_over()
 
 
@@ -59,6 +62,8 @@ func _unhandled_input(event):
 
 func resume_game():
 	game_running = true
+	$Player.show()
+	$MeleeEnemy.show()
 	$Menu.hide()
 	MusicPlayer.play()
 
@@ -66,6 +71,8 @@ func resume_game():
 func pause_game():
 	$Menu.show()
 	game_running = false
+	$Player.hide()
+	$MeleeEnemy.hide()
 	$ParallaxBackground.scroll_speed = Vector2(0, 0)
 	MusicPlayer.stop()
 
@@ -76,6 +83,8 @@ func hide_hud():
 
 func game_over():
 	game_running = false
+	#$MeleeEnemy.set_process_input(false)
+	#get_tree().paused = true
 	$ParallaxBackground.scroll_speed = Vector2(0, 0)
 	MusicPlayer.stop()
 	get_node(".").add_child(game_over_scene.instantiate())

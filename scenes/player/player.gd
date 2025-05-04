@@ -80,15 +80,17 @@ func flip_player() -> void:
 
 func take_damage(damage: int, source: Node) -> void:
 	if source.is_in_group(Constants.ENEMIES_GROUP):
-		_health -= damage
+		#_health -= damage
+		_health -= 1
 		Global.lives = _health
 	
 	if _health <= 0:
 		print(_health)
 
+
 func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected
-	Global.lives -= 1
+
 
 func on_hazard_hit() -> void:
 	set_state(PlayerState.STUNNED)

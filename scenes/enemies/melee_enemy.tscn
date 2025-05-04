@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://c4f8bn6y7jdva"]
 
 [ext_resource type="Script" path="res://scenes/enemies/melee_enemy.gd" id="1_d0vt5"]
-[ext_resource type="Texture2D" uid="uid://b2hyoo6h6kqjl" path="res://assets/characters/enemies/EnemyRacerSpritesheet.png" id="2_mnlsv"]
-[ext_resource type="AudioStream" uid="uid://bk02wxfpllx2k" path="res://assets/Sound/kick_enemy.mp3" id="3_6bakr"]
+[ext_resource type="Texture2D" uid="uid://b2hyoo6h6kqjl" path="res://Assets/Characters/enemies/EnemyRacerSpritesheet.png" id="2_mnlsv"]
+[ext_resource type="AudioStream" uid="uid://bk02wxfpllx2k" path="res://Assets/Sound/kick_enemy.mp3" id="3_6bakr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdks"]
 size = Vector2(11, 12)

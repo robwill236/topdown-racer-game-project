@@ -21,3 +21,4 @@ position = Vector2(456, 536)
 [node name="HUD" parent="." instance=ExtResource("8_jlayb")]
 
 [node name="Menu" parent="." instance=ExtResource("11_dfx6w")]
+visible = false

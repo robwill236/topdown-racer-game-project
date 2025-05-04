@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_restart_pressed() -> void:
+	Global.lives = 10
 	get_tree().reload_current_scene()
 
 
