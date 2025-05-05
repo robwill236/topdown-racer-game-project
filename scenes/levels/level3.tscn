@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0ibf5jr1whr5"]
+[gd_scene load_steps=14 format=3 uid="uid://d0ibf5jr1whr5"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_80jfk"]
 [ext_resource type="PackedScene" uid="uid://bfk3endjoqekc" path="res://scenes/level_background/background3.tscn" id="2_6jhsn"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://ywtkpqqpumyl" path="res://scenes/obstacle_manager/obstacle_manager.tscn" id="8_unogo"]
 [ext_resource type="PackedScene" uid="uid://dq3nvn7kje7n6" path="res://scenes/obstacle_lane/obstacle_lane.tscn" id="9_mukrk"]
 [ext_resource type="PackedScene" uid="uid://q16ad0u4gni4" path="res://scenes/road_hazard/road_hazard.tscn" id="10_v3hd6"]
+[ext_resource type="AudioStream" uid="uid://ekx8n4yhdoxo" path="res://Assets/Sound/pause.mp3" id="11_42pye"]
+[ext_resource type="Texture2D" uid="uid://c3csl3jmjsfq" path="res://Assets/Backgrounds/PNG/Decor/Finish.png" id="11_cgioo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvrtr"]
+size = Vector2(529.396, 142.568)
 
 [node name="Level3" type="Node"]
 script = ExtResource("1_80jfk")
@@ -27,8 +32,37 @@ position = Vector2(456, 536)
 
 [node name="Menu" parent="." instance=ExtResource("7_cc87f")]
 
+[node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]
+
 [node name="ObstacleManager" parent="." instance=ExtResource("8_unogo")]
 
 [node name="ObstacleLane" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
+position = Vector2(240, 0)
 
-[node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]
+[node name="ObstacleLane2" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
+position = Vector2(410, 0)
+
+[node name="ObstacleLane3" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
+position = Vector2(588, -4)
+
+[node name="ObstacleLane4" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
+position = Vector2(762, -4)
+
+[node name="Finish" type="Area2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Finish"]
+position = Vector2(267.016, 184.714)
+scale = Vector2(0.445078, 0.409631)
+texture = ExtResource("11_cgioo")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2(589.104, 276.477)
+scale = Vector2(1.23633, 1.25586)
+shape = SubResource("RectangleShape2D_hvrtr")
+
+[node name="Pause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_42pye")
+parameters/looping = true
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

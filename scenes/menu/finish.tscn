@@ -1,0 +1,148 @@
+[gd_scene load_steps=7 format=3 uid="uid://bamjmvbh6pxly"]
+
+[ext_resource type="Script" path="res://scripts/finish.gd" id="1_g5uds"]
+[ext_resource type="FontFile" uid="uid://bmc7hypltxq0b" path="res://Assets/Font/TechnoRaceItalic-eZRWe.otf" id="1_p3jr5"]
+[ext_resource type="FontFile" uid="uid://dnsm1qw6jdtcp" path="res://Assets/Font/Montserrat-Bold.ttf" id="2_wwx7g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld8ap"]
+bg_color = Color(0, 0.585726, 0.109276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvsqw"]
+bg_color = Color(0, 0.568096, 0.424495, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dukit"]
+bg_color = Color(0, 0.568627, 0.423529, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Finish" type="CanvasLayer"]
+script = ExtResource("1_g5uds")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0178774, 0.0948096, 0.0813019, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -220.0
+offset_right = 384.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p3jr5")
+theme_override_font_sizes/font_size = 80
+text = "LEVEL COMPLETED"
+horizontal_alignment = 1
+
+[node name="Level1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="score" type="Label" parent="MarginContainer/VBoxContainer/Level1"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+text = "Highest Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highest_score" type="Label" parent="MarginContainer/VBoxContainer/Level1"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="score" type="Label" parent="MarginContainer/VBoxContainer/Level2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+text = "Current Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="current_score" type="Label" parent="MarginContainer/VBoxContainer/Level2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ld8ap")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pvsqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dukit")
+text = "Restart Level"
+
+[node name="Change" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ld8ap")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pvsqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dukit")
+text = "Change Level"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_wwx7g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ld8ap")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pvsqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dukit")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Change" to="." method="_on_change_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

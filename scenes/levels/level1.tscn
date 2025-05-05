@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn6s0mogqjqhs"]
+[gd_scene load_steps=10 format=3 uid="uid://bn6s0mogqjqhs"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_7g1vc"]
 [ext_resource type="PackedScene" uid="uid://dm2nlupf7khyq" path="res://scenes/level_background/background.tscn" id="3_3wtcs"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="6_u4dxw"]
+[ext_resource type="AudioStream" uid="uid://ekx8n4yhdoxo" path="res://Assets/Sound/pause.mp3" id="7_0wqat"]
 [ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="7_vp3ax"]
 [ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="8_jlayb"]
+[ext_resource type="Texture2D" uid="uid://c3csl3jmjsfq" path="res://Assets/Backgrounds/PNG/Decor/Finish.png" id="9_ss32r"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="11_dfx6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dder0"]
+size = Vector2(529.396, 142.568)
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_7g1vc")
@@ -22,3 +27,25 @@ position = Vector2(456, 536)
 
 [node name="Menu" parent="." instance=ExtResource("11_dfx6w")]
 visible = false
+
+[node name="MeleeEnemy2" parent="." instance=ExtResource("7_vp3ax")]
+position = Vector2(456, 536)
+
+[node name="Finish" type="Area2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Finish"]
+position = Vector2(267.016, 184.714)
+scale = Vector2(0.445078, 0.409631)
+texture = ExtResource("9_ss32r")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2(589.104, 276.477)
+scale = Vector2(1.23633, 1.25586)
+shape = SubResource("RectangleShape2D_dder0")
+
+[node name="Pause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0wqat")
+parameters/looping = true
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

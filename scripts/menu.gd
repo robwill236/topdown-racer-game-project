@@ -17,6 +17,8 @@ func _on_player_pressed() -> void:
 
 
 func _on_game_mode_pressed() -> void:
+	Global.lives = 10
+	Global.points = 0
 	get_tree().change_scene_to_file("res://scenes/menu/playmode.tscn")
 
 
