@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://cif1dw0b6spxl"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_rshk8"]
-[ext_resource type="Texture2D" uid="uid://u1p1jr66cumn" path="res://assets/characters/player/PlayerRacer.png" id="2_r88qh"]
+[ext_resource type="Texture2D" uid="uid://u1p1jr66cumn" path="res://Assets/Characters/player/PlayerRacer.png" id="2_r88qh"]
 [ext_resource type="Script" path="res://scenes/player/detection_system.gd" id="3_lo65b"]
-[ext_resource type="AudioStream" uid="uid://bci6vtadnylii" path="res://assets/Sound/kick.mp3" id="4_fxjg6"]
+[ext_resource type="AudioStream" uid="uid://bci6vtadnylii" path="res://Assets/Sound/kick.mp3" id="4_fxjg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdh1i"]
 size = Vector2(11, 12)

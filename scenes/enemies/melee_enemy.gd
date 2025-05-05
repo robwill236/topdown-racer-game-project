@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum EnemyState { FOLLOW, ATTACK, STUNNED }
+enum EnemyState { FOLLOW, ATTACK, STUNNED, STOP }
 
 const SPEED = 100.0
 const DISTANCE_THRESHOLD = 25.0
@@ -43,6 +43,10 @@ func _physics_process(delta):
 			velocity = (direction + _avoidance_vector) * SPEED
 
 		move_and_slide()
+		
+	#check if player still has any live
+	if Global.lives <= 0:
+		stop_process()
 
 func set_detector(detection_side: String, is_detected: bool):
 	_player_detectors[detection_side] = is_detected
@@ -53,6 +57,11 @@ func set_state(new_state: EnemyState) -> void:
 	
 	if is_attacking and new_state != EnemyState.STUNNED:
 		return
+	
+#	Added new state to stop when player die.
+	#if new_state == EnemyState.STOP:
+		#is_attacking = false
+		#animation_player.play("idle")
 
 	_state = new_state
 	
@@ -65,6 +74,10 @@ func set_state(new_state: EnemyState) -> void:
 			is_attacking = false
 			animation_player.play("stun")
 			stun_timer.start()
+		EnemyState.STOP:
+			is_attacking = false
+			animation_player.play("idle")
+			stop_process()
 
 func get_direction_to_target() -> Vector2:
 	var right_detector_position = _player_detection_system.get_right_detector_position()
@@ -92,12 +105,12 @@ func get_player_detection_system() -> DetectionSystem:
 func attack() -> void:
 	is_attacking = true
 	detector.monitoring = false
-	print("hit")
+	#print("hit")
 	if _current_target == Constants.LEFT_SIDE_DETECTOR:
 		visual.scale.x = 1
 	else:
 		visual.scale.x = -1
-
+ 
 	animation_player.play("attack")
 
 func back_to_monitoring() -> void:
@@ -107,6 +120,7 @@ func take_damage() -> void:
 	_health -= 5
 
 	if _health <= 0:
+		Global.points += 5
 		queue_free()
 
 func on_hazard_hit() -> void:
@@ -142,3 +156,9 @@ func _on_animation_player_animation_finished(anim_name):
 		back_to_monitoring()
 		set_state(EnemyState.FOLLOW)
 		
+		
+func stop_process():
+	set_physics_process(false)
+
+func resume_process():
+	set_physics_process(true)
