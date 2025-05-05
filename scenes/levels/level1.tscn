@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bn6s0mogqjqhs"]
+[gd_scene load_steps=6 format=3 uid="uid://bn6s0mogqjqhs"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_7g1vc"]
 [ext_resource type="PackedScene" uid="uid://dm2nlupf7khyq" path="res://scenes/level_background/background.tscn" id="3_3wtcs"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="6_u4dxw"]
 [ext_resource type="AudioStream" uid="uid://ekx8n4yhdoxo" path="res://Assets/Sound/pause.mp3" id="7_0wqat"]
-[ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="7_vp3ax"]
 [ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="8_jlayb"]
 [ext_resource type="Texture2D" uid="uid://c3csl3jmjsfq" path="res://Assets/Backgrounds/PNG/Decor/Finish.png" id="9_ss32r"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="11_dfx6w"]
@@ -20,16 +19,29 @@ script = ExtResource("1_7g1vc")
 [node name="Player" parent="." instance=ExtResource("6_u4dxw")]
 position = Vector2(625, 529)
 
-[node name="MeleeEnemy" parent="." instance=ExtResource("7_vp3ax")]
-position = Vector2(456, 536)
-
 [node name="HUD" parent="." instance=ExtResource("8_jlayb")]
 
 [node name="Menu" parent="." instance=ExtResource("11_dfx6w")]
 visible = false
 
-[node name="MeleeEnemy2" parent="." instance=ExtResource("7_vp3ax")]
-position = Vector2(456, 536)
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(468, 636)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(712, 639)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(451, 19)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(731, 12)
+
+[node name="EnemySpawner" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 
 [node name="Finish" type="Area2D" parent="."]
 
