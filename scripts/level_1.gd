@@ -1,23 +1,25 @@
 extends Node
 
+@onready var pause: AudioStreamPlayer = $Pause
 @export var scroll_speed := Vector2(0, 500)
 var game_over_scene = load("res://scenes/menu/game_over.tscn")
-var speed: float
-const START_SPEED : float = 10.0
-const SCORE_MODIFIER: int = 10
-const SPEED_MODIFIER: int = 10000
+var finish_scene = load("res://scenes/menu/finish.tscn")
 var score: int 
 var game_running: bool
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.lives = 10
 	MusicPlayer.play()
 	$HUD/Button.hide()
 	$HUD/HealthBar.hide()
+	$Finish.hide()
 	$Menu.hide()
 	$Menu.get_node("MarginContainer/VBoxContainer/Resume").pressed.connect(resume_game)
 	$HUD.get_node("Button").pressed.connect(pause_game)
-	Global.lives = 10     #change back later to 10
+	check_melee_enemy("stop")
+	check_player("stop")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,26 +27,24 @@ func _process(delta: float) -> void:
 	$Player.position.y = clamp($Player.position.y, 70, 600)
 	if Input.is_action_pressed("ui_accept"):
 		game_running = true
+		check_melee_enemy("resume")
+		check_player("resume")
 		hide_hud()
 		
 	if game_running:
-		speed = START_SPEED + score / SPEED_MODIFIER
 		$ParallaxBackground.scroll_offset += scroll_speed * delta
-		#$Player.position.y -= speed
-		#$Camera2D.position.y -= speed  
-		#$MeleeEnemy.position.y -= speed  
-		score += speed
+		score = Global.points
 		show_score()
-	
-	if Global.score1 < score:
-		Global.score1 = score
 		
 	if Global.lives <= 0:
 		game_over()
+		
+	if Global.points == 10:
+		finish()
 
 
 func show_score():
-	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score/SCORE_MODIFIER)
+	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score)
 	$HUD/Button.show()
 	$HUD/HealthBar.show()
 
@@ -60,22 +60,64 @@ func _unhandled_input(event):
 func resume_game():
 	game_running = true
 	$Menu.hide()
+	check_melee_enemy("resume")
+	check_player("resume")
 	MusicPlayer.play()
+	pause.stop() 
 
 
 func pause_game():
 	$Menu.show()
+	check_melee_enemy("stop")
+	check_player("stop")
+	stop()
+	pause.play()
+	
+func stop():
 	game_running = false
 	$ParallaxBackground.scroll_speed = Vector2(0, 0)
 	MusicPlayer.stop()
-
 
 func hide_hud():
 	$HUD.get_node("Label").hide()
 	$HUD.get_node("Label2").hide()
 
 func game_over():
-	game_running = false
-	$ParallaxBackground.scroll_speed = Vector2(0, 0)
-	MusicPlayer.stop()
+	Global.current1 = score
+	if Global.score1 < score:
+		Global.score1 = score 
+	stop()
 	get_node(".").add_child(game_over_scene.instantiate())
+
+func finish():
+	stop()
+	pause.play()
+	score = Global.points * Global.lives
+	Global.current1 = score
+	if Global.score1 < score:
+		Global.score1 = score
+	$Finish.show()
+	
+
+func check_melee_enemy(value : String):
+	var melee = get_node_or_null("MeleeEnemy")
+	if melee != null:
+		if value == "stop":
+			$MeleeEnemy.stop_process()
+		else:
+			$MeleeEnemy.resume_process()
+		
+			
+func check_player(value : String):
+	var player = get_node_or_null("Player")
+	if player != null:
+		if value == "stop":
+			$Player.stop_process()
+		else:
+			$Player.resume_process()
+		
+
+func _on_finish_body_entered(body: Node2D) -> void:
+	get_node(".").add_child(finish_scene.instantiate())
+	check_player("stop")	
+	

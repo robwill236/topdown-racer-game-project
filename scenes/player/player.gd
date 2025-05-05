@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum PlayerState { IDLE, ATTACK, STUNNED }
+enum PlayerState { IDLE, ATTACK, STUNNED, DIE }
 
 @export var speed: float = 250.0
 @onready var sfx_kicking: AudioStreamPlayer = $sfx_kicking
@@ -60,6 +60,8 @@ func set_state(new_state: PlayerState) -> void:
 			_is_attack_anim_finished = true
 			animation_player.play("stun")
 			stun_timer.start()
+		PlayerState.DIE:
+			animation_player.play("idle")
 
 func calculate_states() -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -80,15 +82,18 @@ func flip_player() -> void:
 
 func take_damage(damage: int, source: Node) -> void:
 	if source.is_in_group(Constants.ENEMIES_GROUP):
-		_health -= damage
+		#_health -= damage
+		_health -= 1
 		Global.lives = _health
 	
 	if _health <= 0:
 		print(_health)
+		set_state(PlayerState.IDLE)
+
 
 func set_detector(detection_side: String, is_detected: bool):
 	_detectors[detection_side] = is_detected
-	Global.lives -= 1
+
 
 func on_hazard_hit() -> void:
 	set_state(PlayerState.STUNNED)
@@ -102,3 +107,10 @@ func _on_hitbox_body_entered(body):
 
 func _on_stun_timer_timeout():
 	set_state(PlayerState.IDLE)
+		
+
+func stop_process():
+	set_physics_process(false)
+
+func resume_process():
+	set_physics_process(true)

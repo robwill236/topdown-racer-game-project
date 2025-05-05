@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6lq8uiuk0mmc"]
+[gd_scene load_steps=13 format=3 uid="uid://6lq8uiuk0mmc"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_eft2w"]
 [ext_resource type="PackedScene" uid="uid://clnqyarndaon4" path="res://scenes/level_background/background2.tscn" id="2_ket0n"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="6_q87xj"]
 [ext_resource type="PackedScene" uid="uid://ywtkpqqpumyl" path="res://scenes/obstacle_manager/obstacle_manager.tscn" id="8_pwa8a"]
 [ext_resource type="PackedScene" uid="uid://dq3nvn7kje7n6" path="res://scenes/obstacle_lane/obstacle_lane.tscn" id="9_xj500"]
+[ext_resource type="Texture2D" uid="uid://c3csl3jmjsfq" path="res://Assets/Backgrounds/PNG/Decor/Finish.png" id="10_8tijo"]
+[ext_resource type="AudioStream" uid="uid://ekx8n4yhdoxo" path="res://Assets/Sound/pause.mp3" id="10_qa1cb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbfir"]
+size = Vector2(529.396, 142.568)
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_eft2w")
@@ -18,6 +23,9 @@ script = ExtResource("3_8g45b")
 
 [node name="Player" parent="." instance=ExtResource("3_mf0yb")]
 position = Vector2(625, 529)
+
+[node name="MeleeEnemy2" parent="." instance=ExtResource("4_081tj")]
+position = Vector2(912, 1072)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("4_081tj")]
 position = Vector2(456, 536)
@@ -29,3 +37,32 @@ position = Vector2(456, 536)
 [node name="ObstacleManager" parent="." instance=ExtResource("8_pwa8a")]
 
 [node name="ObstacleLane" parent="ObstacleManager" instance=ExtResource("9_xj500")]
+position = Vector2(240, 0)
+
+[node name="ObstacleLane2" parent="ObstacleManager" instance=ExtResource("9_xj500")]
+position = Vector2(410, 0)
+
+[node name="ObstacleLane3" parent="ObstacleManager" instance=ExtResource("9_xj500")]
+position = Vector2(588, -4)
+
+[node name="ObstacleLane4" parent="ObstacleManager" instance=ExtResource("9_xj500")]
+position = Vector2(762, -4)
+
+[node name="Finish" type="Area2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Finish"]
+position = Vector2(267.016, 184.714)
+scale = Vector2(0.445078, 0.409631)
+texture = ExtResource("10_8tijo")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2(589.104, 276.477)
+scale = Vector2(1.23633, 1.25586)
+shape = SubResource("RectangleShape2D_pbfir")
+
+[node name="Pause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qa1cb")
+parameters/looping = true
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]
