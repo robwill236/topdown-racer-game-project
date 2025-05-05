@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bci6vtadnylii"
-path="res://.godot/imported/kick.mp3-31726bd80c45ff48c2e305371c4998e2.mp3str"
+path="res://.godot/imported/kick.mp3-2e89a57748c6a02b29a42441e062d227.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sound/kick.mp3"
-dest_files=["res://.godot/imported/kick.mp3-31726bd80c45ff48c2e305371c4998e2.mp3str"]
+source_file="res://assets/Sound/kick.mp3"
+dest_files=["res://.godot/imported/kick.mp3-2e89a57748c6a02b29a42441e062d227.mp3str"]
 
 [params]
 

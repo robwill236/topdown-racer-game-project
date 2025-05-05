@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpuhs0iuc17nu"
-path="res://.godot/imported/minishop&callbox.png-b3c569fdeae985e6ffd61c483c79b0b8.ctex"
+path="res://.godot/imported/minishop&callbox.png-a5663c8c669b33373df0348db6c457b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/city/PNG/City2/Bright/minishop&callbox.png"
-dest_files=["res://.godot/imported/minishop&callbox.png-b3c569fdeae985e6ffd61c483c79b0b8.ctex"]
+source_file="res://assets/backgrounds/city/PNG/City2/Bright/minishop&callbox.png"
+dest_files=["res://.godot/imported/minishop&callbox.png-a5663c8c669b33373df0348db6c457b5.ctex"]
 
 [params]
 

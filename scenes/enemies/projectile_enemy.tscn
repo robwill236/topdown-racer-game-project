@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://blyr7bdxv2wf5"]
+
+[ext_resource type="Texture2D" uid="uid://b2hyoo6h6kqjl" path="res://assets/characters/enemies/EnemyRacerSpritesheet.png" id="1_aindw"]
+[ext_resource type="Script" path="res://scenes/enemies/projectile_enemy.gd" id="1_b81yu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4t1y"]
+radius = 27.0
+height = 120.0
+
+[node name="ProjectileEnemy" type="CharacterBody2D"]
+script = ExtResource("1_b81yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("1_aindw")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_r4t1y")
+
+[node name="ProjectileTimer" type="Timer" parent="."]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwxylvt78pwjd"
-path="res://.godot/imported/crosswalk_pale.png-3828381a69ef685458db778151df4eb6.ctex"
+path="res://.godot/imported/crosswalk_pale.png-e8afd7f880a7c4f5ee1808e261c5d6f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/city/PNG/City3/Pale/crosswalk_pale.png"
-dest_files=["res://.godot/imported/crosswalk_pale.png-3828381a69ef685458db778151df4eb6.ctex"]
+source_file="res://assets/backgrounds/city/PNG/City3/Pale/crosswalk_pale.png"
+dest_files=["res://.godot/imported/crosswalk_pale.png-e8afd7f880a7c4f5ee1808e261c5d6f1.ctex"]
 
 [params]
 

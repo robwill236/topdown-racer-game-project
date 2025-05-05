@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy0jwcajv6pbi"
-path="res://.godot/imported/boxes&container.png-3479cbb81e15db9ea89bf411a3ce6e47.ctex"
+path="res://.godot/imported/boxes&container.png-5ab82650d1e15f79904a240d1b3f54a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/city/PNG/City1/Pale/boxes&container.png"
-dest_files=["res://.godot/imported/boxes&container.png-3479cbb81e15db9ea89bf411a3ce6e47.ctex"]
+source_file="res://assets/backgrounds/city/PNG/City1/Pale/boxes&container.png"
+dest_files=["res://.godot/imported/boxes&container.png-5ab82650d1e15f79904a240d1b3f54a7.ctex"]
 
 [params]
 

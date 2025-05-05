@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://td6dt1pqpjo2"
-path="res://.godot/imported/road_22.png-7bc3c19b573c853cf80978d290e42b7b.ctex"
+path="res://.godot/imported/road_22.png-d18ef59328f29cff33dea9e0a441b942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/desert/PNG/road_22.png"
-dest_files=["res://.godot/imported/road_22.png-7bc3c19b573c853cf80978d290e42b7b.ctex"]
+source_file="res://assets/backgrounds/desert/PNG/road_22.png"
+dest_files=["res://.godot/imported/road_22.png-d18ef59328f29cff33dea9e0a441b942.ctex"]
 
 [params]
 
