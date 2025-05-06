@@ -92,6 +92,7 @@ func game_over():
 func finish():
 	stop()
 	pause.play()
+	$Finish.monitoring = true
 	score = Global.points * Global.lives
 	Global.current1 = score
 	if Global.score1 < score:

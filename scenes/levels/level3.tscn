@@ -33,6 +33,7 @@ position = Vector2(456, 536)
 [node name="Menu" parent="." instance=ExtResource("7_cc87f")]
 
 [node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]
+monitoring = false
 
 [node name="ObstacleManager" parent="." instance=ExtResource("8_unogo")]
 
@@ -49,6 +50,7 @@ position = Vector2(588, -4)
 position = Vector2(762, -4)
 
 [node name="Finish" type="Area2D" parent="."]
+monitoring = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Finish"]
 position = Vector2(267.016, 184.714)

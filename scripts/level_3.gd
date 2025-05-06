@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	if Global.lives <= 0:
 		game_over()
 		
-	if Global.points == 10:
+	if Global.points == 5:
 		finish()
 
 
@@ -92,6 +92,7 @@ func game_over():
 
 func finish():
 	stop()
+	$Finish.monitoring = true
 	pause.play()
 	score = Global.points * Global.lives
 	Global.current3 = score
