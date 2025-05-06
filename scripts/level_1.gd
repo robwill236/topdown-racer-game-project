@@ -1,11 +1,22 @@
 extends Node
 
-@onready var pause: AudioStreamPlayer = $Pause
+@onready var enemy_spawn_points = $EnemySpawnPoints
+@onready var enemy_scene = preload("res://scenes/enemies/melee_enemy.tscn")
+@onready var enemy_spawner: Timer = $EnemySpawner
+
 @export var scroll_speed := Vector2(0, 500)
 var game_over_scene = load("res://scenes/menu/game_over.tscn")
+var speed: float
+const START_SPEED : float = 10.0
+const SCORE_MODIFIER: int = 10
+const SPEED_MODIFIER: int = 10000
+const MAX_ENEMIES: int = 2
+@onready var pause: AudioStreamPlayer = $Pause
 var finish_scene = load("res://scenes/menu/finish.tscn")
 var score: int 
 var game_running: bool
+var enemies_to_beat: int = 5
+var enemy_counter: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,6 +53,14 @@ func _process(delta: float) -> void:
 	if Global.points == 10:
 		finish()
 
+func spawn_enemy() -> void:
+	var spawn_points = enemy_spawn_points.get_children()
+	
+	var random_marker = spawn_points[randi() % spawn_points.size()]
+	var enemy = enemy_scene.instantiate()
+	
+	enemy.global_position = random_marker.global_position
+	get_parent().add_child(enemy)
 
 func show_score():
 	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score)
@@ -89,6 +108,19 @@ func game_over():
 	stop()
 	get_node(".").add_child(game_over_scene.instantiate())
 
+func _on_enemy_spawner_timeout():
+	if enemy_counter >= enemies_to_beat:
+		enemy_spawner.stop()
+		return
+	
+	var current_enemies = get_tree().get_nodes_in_group(Constants.ENEMIES_GROUP).size()
+	
+	if current_enemies == MAX_ENEMIES:
+		return
+
+	spawn_enemy()
+	enemy_counter += 1
+
 func finish():
 	stop()
 	pause.play()
@@ -121,4 +153,4 @@ func check_player(value : String):
 func _on_finish_body_entered(body: Node2D) -> void:
 	get_node(".").add_child(finish_scene.instantiate())
 	check_player("stop")	
-	
+

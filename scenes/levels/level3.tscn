@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0ibf5jr1whr5"]
+[gd_scene load_steps=10 format=3 uid="uid://d0ibf5jr1whr5"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_80jfk"]
 [ext_resource type="PackedScene" uid="uid://bfk3endjoqekc" path="res://scenes/level_background/background3.tscn" id="2_6jhsn"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="3_tkbqq"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="4_q0lul"]
-[ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="5_voll3"]
 [ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="6_0vkft"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="7_cc87f"]
 [ext_resource type="PackedScene" uid="uid://ywtkpqqpumyl" path="res://scenes/obstacle_manager/obstacle_manager.tscn" id="8_unogo"]
@@ -25,12 +24,10 @@ script = ExtResource("3_tkbqq")
 [node name="Player" parent="." instance=ExtResource("4_q0lul")]
 position = Vector2(625, 529)
 
-[node name="MeleeEnemy" parent="." instance=ExtResource("5_voll3")]
-position = Vector2(456, 536)
-
 [node name="HUD" parent="." instance=ExtResource("6_0vkft")]
 
 [node name="Menu" parent="." instance=ExtResource("7_cc87f")]
+visible = false
 
 [node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]
 monitoring = false
@@ -38,16 +35,34 @@ monitoring = false
 [node name="ObstacleManager" parent="." instance=ExtResource("8_unogo")]
 
 [node name="ObstacleLane" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
-position = Vector2(240, 0)
+position = Vector2(307, -1)
 
 [node name="ObstacleLane2" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
-position = Vector2(410, 0)
+position = Vector2(673, -4)
 
 [node name="ObstacleLane3" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
-position = Vector2(588, -4)
+position = Vector2(488, -4)
 
-[node name="ObstacleLane4" parent="ObstacleManager" instance=ExtResource("9_mukrk")]
-position = Vector2(762, -4)
+[node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(450, 17)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(700, 18)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(742, 620)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(441, 627)
+
+[node name="EnemySpawner" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 
 [node name="Finish" type="Area2D" parent="."]
 monitoring = false
