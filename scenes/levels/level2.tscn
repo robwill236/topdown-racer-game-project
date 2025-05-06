@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://6lq8uiuk0mmc"]
+[gd_scene load_steps=12 format=3 uid="uid://6lq8uiuk0mmc"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_eft2w"]
 [ext_resource type="PackedScene" uid="uid://clnqyarndaon4" path="res://scenes/level_background/background2.tscn" id="2_ket0n"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="3_8g45b"]
 [ext_resource type="PackedScene" uid="uid://cif1dw0b6spxl" path="res://scenes/player/player.tscn" id="3_mf0yb"]
-[ext_resource type="PackedScene" uid="uid://c4f8bn6y7jdva" path="res://scenes/enemies/melee_enemy.tscn" id="4_081tj"]
 [ext_resource type="PackedScene" uid="uid://cfx76gu70e2id" path="res://scenes/menu/HUD.tscn" id="5_sfcw6"]
 [ext_resource type="PackedScene" uid="uid://duoeqnsuj876j" path="res://scenes/menu/menu.tscn" id="6_q87xj"]
 [ext_resource type="PackedScene" uid="uid://ywtkpqqpumyl" path="res://scenes/obstacle_manager/obstacle_manager.tscn" id="8_pwa8a"]
@@ -24,29 +23,41 @@ script = ExtResource("3_8g45b")
 [node name="Player" parent="." instance=ExtResource("3_mf0yb")]
 position = Vector2(625, 529)
 
-[node name="MeleeEnemy2" parent="." instance=ExtResource("4_081tj")]
-position = Vector2(912, 1072)
-
-[node name="MeleeEnemy" parent="." instance=ExtResource("4_081tj")]
-position = Vector2(456, 536)
-
 [node name="HUD" parent="." instance=ExtResource("5_sfcw6")]
 
 [node name="Menu" parent="." instance=ExtResource("6_q87xj")]
+visible = false
 
 [node name="ObstacleManager" parent="." instance=ExtResource("8_pwa8a")]
 
 [node name="ObstacleLane" parent="ObstacleManager" instance=ExtResource("9_xj500")]
-position = Vector2(240, 0)
+position = Vector2(240, -1)
 
 [node name="ObstacleLane2" parent="ObstacleManager" instance=ExtResource("9_xj500")]
-position = Vector2(410, 0)
+position = Vector2(403, 3)
 
 [node name="ObstacleLane3" parent="ObstacleManager" instance=ExtResource("9_xj500")]
-position = Vector2(588, -4)
+position = Vector2(738, -5)
 
 [node name="ObstacleLane4" parent="ObstacleManager" instance=ExtResource("9_xj500")]
-position = Vector2(762, -4)
+position = Vector2(570, -4)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(413, 14)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(778, 10)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(362, 642)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(731, 636)
+
+[node name="EnemySpawner" type="Timer" parent="."]
+autostart = true
 
 [node name="Finish" type="Area2D" parent="."]
 monitoring = false
@@ -66,4 +77,5 @@ shape = SubResource("RectangleShape2D_pbfir")
 stream = ExtResource("10_qa1cb")
 parameters/looping = true
 
+[connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 [connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

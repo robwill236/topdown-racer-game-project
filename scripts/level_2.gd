@@ -10,7 +10,7 @@ var game_running: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.lives = 10
+	Global.lives = 10 
 	MusicPlayer.play()
 	$HUD/Button.hide()
 	$HUD/HealthBar.hide()
