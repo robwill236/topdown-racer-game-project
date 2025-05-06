@@ -20,7 +20,7 @@ var _player_detectors: Dictionary = {
 }
 var _current_target: String
 var _avoidance_vector: Vector2 = Vector2.ZERO
-var _health: int = 30
+var _health: int = 10
 var is_attacking: bool = false
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6lq8uiuk0mmc"]
+[gd_scene load_steps=12 format=3 uid="uid://6lq8uiuk0mmc"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_eft2w"]
 [ext_resource type="PackedScene" uid="uid://clnqyarndaon4" path="res://scenes/level_background/background2.tscn" id="2_ket0n"]
@@ -57,11 +57,9 @@ position = Vector2(362, 642)
 position = Vector2(731, 636)
 
 [node name="EnemySpawner" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 
 [node name="Finish" type="Area2D" parent="."]
+monitoring = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Finish"]
 position = Vector2(267.016, 184.714)
@@ -78,4 +76,5 @@ shape = SubResource("RectangleShape2D_pbfir")
 stream = ExtResource("10_qa1cb")
 parameters/looping = true
 
+[connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 [connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

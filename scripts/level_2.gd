@@ -29,8 +29,8 @@ func _ready() -> void:
 	$Menu.hide()
 	$Menu.get_node("MarginContainer/VBoxContainer/Resume").pressed.connect(resume_game)
 	$HUD.get_node("Button").pressed.connect(pause_game)
-	check_melee_enemy("stop")
 	check_player("stop")
+	get_tree().call_group(Constants.ENEMIES_GROUP, "queue_free")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("ui_accept"):
 		game_running = true
-		check_melee_enemy("resume")
+		$EnemySpawner.start()
 		check_player("resume")
 		hide_hud()
 		
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	if Global.lives <= 0:
 		game_over()
 		
-	if Global.points == 10:
+	if Global.points == 50:
 		finish()
 
 
@@ -81,7 +81,8 @@ func _unhandled_input(event):
 func resume_game():
 	game_running = true
 	$Menu.hide()
-	check_melee_enemy("resume")
+	$EnemySpawner.start()
+	get_tree().call_group(Constants.ENEMIES_GROUP, "resume_process")
 	check_player("resume")
 	MusicPlayer.play()
 	pause.stop() 
@@ -89,7 +90,8 @@ func resume_game():
 
 func pause_game():
 	$Menu.show()
-	check_melee_enemy("stop")
+	$EnemySpawner.stop()
+	get_tree().call_group(Constants.ENEMIES_GROUP, "stop_process")
 	check_player("stop")
 	stop()
 	pause.play()
@@ -131,16 +133,8 @@ func finish():
 	if Global.score2 < score:
 		Global.score2 = score
 	$Finish.show()
+	$Finish.monitoring = true
 	
-
-func check_melee_enemy(value : String):
-	var melee = get_node_or_null("MeleeEnemy")
-	if melee != null:
-		if value == "stop":
-			$MeleeEnemy.stop_process()
-		else:
-			$MeleeEnemy.resume_process()
-		
 			
 func check_player(value : String):
 	var player = get_node_or_null("Player")
