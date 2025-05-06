@@ -19,10 +19,10 @@ script = ExtResource("1_7g1vc")
 [node name="Player" parent="." instance=ExtResource("6_u4dxw")]
 position = Vector2(625, 529)
 
+
 [node name="HUD" parent="." instance=ExtResource("8_jlayb")]
 
 [node name="Menu" parent="." instance=ExtResource("11_dfx6w")]
-visible = false
 
 [node name="EnemySpawnPoints" type="Node2D" parent="."]
 
@@ -44,6 +44,7 @@ autostart = true
 [connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 
 [node name="Finish" type="Area2D" parent="."]
+monitoring = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Finish"]
 position = Vector2(267.016, 184.714)

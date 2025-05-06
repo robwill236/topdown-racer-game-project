@@ -30,6 +30,7 @@ position = Vector2(625, 529)
 visible = false
 
 [node name="RoadHazard" parent="." instance=ExtResource("10_v3hd6")]
+monitoring = false
 
 [node name="ObstacleManager" parent="." instance=ExtResource("8_unogo")]
 
@@ -64,6 +65,7 @@ autostart = true
 [connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
 
 [node name="Finish" type="Area2D" parent="."]
+monitoring = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Finish"]
 position = Vector2(267.016, 184.714)

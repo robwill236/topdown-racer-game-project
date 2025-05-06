@@ -21,7 +21,7 @@ var enemy_counter: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.lives = 10
+	Global.lives = 10 
 	MusicPlayer.play()
 	$HUD/Button.hide()
 	$HUD/HealthBar.hide()
@@ -125,6 +125,7 @@ func _on_enemy_spawner_timeout():
 
 func finish():
 	stop()
+	$Finish.monitoring = true
 	pause.play()
 	score = Global.points * Global.lives
 	Global.current2 = score

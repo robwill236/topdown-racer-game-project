@@ -124,6 +124,7 @@ func _on_enemy_spawner_timeout():
 func finish():
 	stop()
 	pause.play()
+	$Finish.monitoring = true
 	score = Global.points * Global.lives
 	Global.current1 = score
 	if Global.score1 < score:
